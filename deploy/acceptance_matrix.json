@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "purpose": "Required acceptance scenarios; a listed scenario is not a claim that cloud or live-source testing has passed.",
+  "scenarios": [
+    {"id":"NEW_NOTICE","expect":"New notice creates a stable notice/event ID and archives the linked official body.","status":"root_collector_test_required"},
+    {"id":"OLD_DATE_INSERT","expect":"An inserted old-date item is discovered by link identity rather than excluded by date watermark.","status":"root_collector_test_required"},
+    {"id":"PINNED_OLD_NOTICE","expect":"Pinned old notice does not stop traversal of new items or change the admissions year.","status":"root_collector_test_required"},
+    {"id":"SAME_URL_REVISION","expect":"Changed body SHA256 creates a new version while the previous original remains.","status":"root_collector_test_required"},
+    {"id":"ATTACHMENT_REPLACED","expect":"Same attachment URL with new bytes creates a new asset version.","status":"root_collector_test_required"},
+    {"id":"POSTPONED_OR_EARLIER_DEADLINE","expect":"Retain old/new quoted deadline evidence and invalidate obsolete future alerts.","status":"notification_stage_required"},
+    {"id":"MULTIPLE_OR_UNKNOWN_DATES","expect":"Separate application, material and preapplication nodes; unknown time is not invented.","status":"root_collector_test_required"},
+    {"id":"ROLLED_OFF_FIRST_PAGE","expect":"Pagination or seed backfill records coverage bounds and unfinished cursors.","status":"root_collector_test_required"},
+    {"id":"HTTP403_OR468","expect":"Failure is recorded explicitly and never reported as no new notices.","status":"live_source_test_required"},
+    {"id":"HTTP200_PROTECTION_OR_PLACEHOLDER","expect":"Body not counted complete; raw error/protection evidence retained.","status":"live_source_test_required"},
+    {"id":"SITE_MIGRATION","expect":"Preserve requested/final URL and validate official scope before accepting new host.","status":"root_collector_test_required"},
+    {"id":"SCANNED_PDF_OR_IMAGE","expect":"Keep original bytes and distinguish OCR/date review pending from text completeness.","status":"live_asset_test_required"},
+    {"id":"SHARED_PARENT_SOURCE","expect":"Fetch once but preserve all institution-to-source bindings and separate recruitment/training codes.","status":"root_registry_test_required"},
+    {"id":"SUBUNIT_INDEPENDENT_RULES","expect":"A parent charter does not suppress independent institute/college requirements.","status":"live_source_test_required"},
+    {"id":"TAMPERED_SNAPSHOT","expect":"Hash mismatch fails before restoration and existing destination remains intact.","status":"local_deploy_tests_passed"},
+    {"id":"UNSAFE_ARCHIVE_PATH","expect":"Reject ../, absolute path, symlink and entries absent from the manifest.","status":"local_deploy_tests_passed"},
+    {"id":"PRIVATE_CONFIG_PUBLICATION","expect":"Personal settings/raw/state/environment directories absent from staged public package.","status":"local_deploy_tests_passed"},
+    {"id":"EXPORTED_BASELINE","expect":"Staging-only config binds registry/manifest SHA; original seven files are not claimed rechecked in cloud.","status":"local_deploy_tests_passed"},
+    {"id":"MISSING_PRIOR_SNAPSHOT","expect":"Restore fails except explicit first bootstrap; network/auth failure never implies empty state.","status":"real_private_cloud_test_required"},
+    {"id":"PRIVATE_RELEASE_ROUNDTRIP","expect":"Create draft, upload, download and verify every body/asset/state byte, then publish.","status":"real_private_cloud_test_required"},
+    {"id":"CLOUD_SOURCE_REACHABILITY","expect":"Actual public-runner result per source, distinct from local GET success.","status":"real_public_runner_test_required"},
+    {"id":"LAPTOP_OFF","expect":"Cloud run completes while local services and machine are not needed.","status":"real_public_runner_test_required"},
+    {"id":"SINGLE_CHANNEL_FAILURE","expect":"One notification channel failure does not block the other; persistent attempts remain.","status":"notification_stage_required"},
+    {"id":"SEND_THEN_CRASH","expect":"Persistent event ID avoids silent drop; retries may be labeled duplicates rather than claiming exactly once.","status":"notification_stage_required"},
+    {"id":"ANDROID_LOCK_SCREEN","expect":"Actual device receives a push while locked; API receipt is separately recorded.","status":"actual_device_test_required"},
+    {"id":"SEVEN_DAY_OBSERVATION","expect":"Record real run intervals, source gaps and restoration; delayed/dropped schedule is visible.","status":"continuous_observation_not_started"}
+  ]
+}

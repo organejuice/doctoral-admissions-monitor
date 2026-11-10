@@ -1,0 +1,63 @@
+name: Doctoral source network probe - no persistence
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: doctoral-source-network-probe
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    if: github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PYTHONUTF8: '1'
+      PYTHONUNBUFFERED: '1'
+      PILOT_RUN_ID: network-probe-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: '24.22.1'
+      - name: Install locked software
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check --no-cache-dir -r requirements.txt
+          npm ci --prefix integrations/rsshub --ignore-scripts --no-audit --no-fund
+      - name: Start fresh one-page public-source bridge and real RSSHub
+        env:
+          BRIDGE_BASE_URL: http://127.0.0.1:8765
+          RSSHUB_PORT: '1200'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .probe/data/reports
+          python -m doctoral_monitor bridge --config config/pilot_sources.json --data-dir .probe/data --run-id "$PILOT_RUN_ID" --max-pages 1 --port 8765 >.probe/data/reports/bridge.log 2>&1 &
+          echo "$!" >.probe/bridge.pid
+          node integrations/rsshub/server.mjs >.probe/data/reports/rsshub.log 2>&1 &
+          echo "$!" >.probe/rsshub.pid
+          python deploy/wait_services.py
+      - name: Probe official reachability and one original per source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m doctoral_monitor run --config config/pilot_sources.json --data-dir .probe/data --run-id "$PILOT_RUN_ID" --max-notices 1 --rsshub http://127.0.0.1:1200
+      - name: Record explicit probe-only boundary
+        if: always()
+        shell: bash
+        run: |
+          printf '%s\n' '## Probe only: no persistent originals' 'This job tests public-runner source reachability through actual RSSHub.' 'Original bytes exist only in this temporary runner; no private repository, Release, cache, artifact or notification channel was used.' 'A completed probe does not pass private archive restoration, reminder delivery or continuous monitoring acceptance.' >> "$GITHUB_STEP_SUMMARY"
+          for pidfile in .probe/bridge.pid .probe/rsshub.pid; do
+            if [ -f "$pidfile" ]; then kill "$(cat "$pidfile")" 2>/dev/null || true; fi
+          done

@@ -1,0 +1,17 @@
+.runtime/
+private/
+data/
+raw/
+state/
+processed/
+reports/
+workspaces/
+vendor/
+node_modules/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+*.sqlite*
+publication/
+

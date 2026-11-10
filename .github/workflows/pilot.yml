@@ -1,0 +1,114 @@
+name: Doctoral admissions pilot
+
+on:
+  workflow_dispatch:
+    inputs:
+      bootstrap:
+        description: 'Initialize only when the private data repository has no prior snapshot'
+        type: boolean
+        required: true
+        default: false
+
+# Deliberately manual-only until real cloud restoration and phone delivery pass.
+# A later reviewed schedule may use 7,22,37,52 * * * *; this file enables none.
+permissions:
+  contents: read
+
+concurrency:
+  group: doctoral-admissions-pilot
+  cancel-in-progress: false
+
+jobs:
+  pilot:
+    if: github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      PYTHONUTF8: '1'
+      DATA_REPOSITORY: ${{ vars.DATA_REPOSITORY }}
+      PYTHONUNBUFFERED: '1'
+      PILOT_RUN_ID: gh-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - name: Check out reviewed public software
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6, verified 2026-11-10
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.11'
+      - name: Set up Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24.22.1'
+      - name: Validate public code repository and private storage role
+        env:
+          GH_TOKEN: ${{ secrets.DATA_REPOSITORY_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$DATA_REPOSITORY"
+          test -n "$GH_TOKEN"
+          python deploy/cloud_control.py repo-check --repo "$GITHUB_REPOSITORY" --visibility public
+          python deploy/cloud_control.py repo-check --repo "$DATA_REPOSITORY" --visibility private
+      - name: Install locked collector and RSSHub dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check --no-cache-dir -r requirements.txt
+          npm ci --prefix integrations/rsshub --ignore-scripts --no-audit --no-fund
+      - name: Run deterministic integrity and regression tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s deploy -p 'test_cloud_tools.py' -v
+          python -m unittest discover -s tests -v
+          node integrations/rsshub/test.mjs
+      - name: Restore prior private snapshot or explicit first bootstrap
+        id: restore
+        env:
+          GH_TOKEN: ${{ secrets.DATA_REPOSITORY_TOKEN }}
+          BOOTSTRAP: ${{ inputs.bootstrap }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .cloud
+          bootstrap=()
+          if [ "$BOOTSTRAP" = 'true' ]; then bootstrap=(--bootstrap); fi
+          python deploy/cloud_control.py release-get --repo "$DATA_REPOSITORY" --destination .cloud/data "${bootstrap[@]}"
+      - name: Start temporary local bridge and actual RSSHub
+        shell: bash
+        env:
+          BRIDGE_BASE_URL: http://127.0.0.1:8765
+          RSSHUB_PORT: '1200'
+        run: |
+          set -euo pipefail
+          mkdir -p .cloud/data/reports
+          python -m doctoral_monitor bridge --config config/pilot_sources.json --data-dir .cloud/data --run-id "$PILOT_RUN_ID" --port 8765 >.cloud/data/reports/bridge.log 2>&1 &
+          echo "$!" >.cloud/bridge.pid
+          node integrations/rsshub/server.mjs >.cloud/data/reports/rsshub.log 2>&1 &
+          echo "$!" >.cloud/rsshub.pid
+          python deploy/wait_services.py
+      - name: Collect real official-source pilot and original assets
+        env:
+          PILOT_RUN_ID: gh-${{ github.run_id }}-${{ github.run_attempt }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m doctoral_monitor run --config config/pilot_sources.json --rsshub http://127.0.0.1:1200 --data-dir .cloud/data --run-id "$PILOT_RUN_ID"
+      - name: Stop temporary services before snapshot
+        if: always()
+        shell: bash
+        run: |
+          for pidfile in .cloud/bridge.pid .cloud/rsshub.pid; do
+            if [ -f "$pidfile" ]; then kill "$(cat "$pidfile")" 2>/dev/null || true; fi
+          done
+      - name: Preserve private snapshot and verify download restoration
+        if: always() && steps.restore.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.DATA_REPOSITORY_TOKEN }}
+          SNAPSHOT_TAG: snapshot-${{ github.run_id }}-${{ github.run_attempt }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python deploy/cloud_control.py release-put --repo "$DATA_REPOSITORY" --directory .cloud/data --tag "$SNAPSHOT_TAG"

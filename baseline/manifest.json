@@ -1,0 +1,119 @@
+{
+  "baseline_id": "doctoral-catalogues-20261110-v1",
+  "created_at_utc": "2026-11-10T06:28:47.7107862+00:00",
+  "purpose": "Accepted catalogue baseline for downstream monitoring; no new live-source verification.",
+  "files": [
+    {
+      "relative_path": "高校目录底表.xlsx",
+      "bytes": 798562,
+      "sha256": "3b6d52a7d45d0e282082bc1fb0146ef6d61853dc7f7b78a71877dc0a6c7f686f",
+      "readonly_required": true,
+      "last_write_time_utc": "2026-11-08T15:14:00.6966331Z"
+    },
+    {
+      "relative_path": "高校目录底表.csv",
+      "bytes": 2589566,
+      "sha256": "b33c79f92289cf3550bd4174302b1937238eceef5204b3423d8be63f5b44bfdf",
+      "readonly_required": true,
+      "last_write_time_utc": "2026-11-08T15:14:00.8318712Z"
+    },
+    {
+      "relative_path": "高校网址自动核验结果.csv",
+      "bytes": 580969,
+      "sha256": "97483fe2a7f9081d7c730e4b5f960b40024ab4a7c8a8a782aceefa15a96ec7b0",
+      "readonly_required": true,
+      "last_write_time_utc": "2026-11-08T15:12:19.5955345Z"
+    },
+    {
+      "relative_path": "博士招生网址待核验清单.csv",
+      "bytes": 6414,
+      "sha256": "03363fa16c1efafa8bf88316234b9dd371b4fe535573027e40defffeec4c43ce",
+      "readonly_required": true,
+      "last_write_time_utc": "2026-11-08T15:15:22.8837213Z"
+    },
+    {
+      "relative_path": "研究所目录底表.xlsx",
+      "bytes": 169996,
+      "sha256": "99d8954664ef6a7b566bc69e8fdbd4b47f804c75fde24971ba731373cc02f241",
+      "readonly_required": true,
+      "last_write_time_utc": "2026-11-10T04:34:41.6362812Z"
+    },
+    {
+      "relative_path": "研究所目录底表.csv",
+      "bytes": 769719,
+      "sha256": "7bfec01c92331bc4e1ac22e1618afd7674a152ca93088f67c53f2e38b723c8e9",
+      "readonly_required": true,
+      "last_write_time_utc": "2026-11-10T04:34:34.7345135Z"
+    },
+    {
+      "relative_path": "研究所网址待核验清单.csv",
+      "bytes": 54790,
+      "sha256": "2057e233117e0cceb5c6d3715a4dd36c69371e842033471d803ab03ded29a12e",
+      "readonly_required": true,
+      "last_write_time_utc": "2026-11-10T04:34:34.7375245Z"
+    }
+  ],
+  "provenance_at_freeze": [
+    {
+      "relative_path": "README.md",
+      "sha256": "e163772381054f717c2905181c297868610ca4b0c3a318a7fd40f22df910e440"
+    },
+    {
+      "relative_path": "研究所底表说明.md",
+      "sha256": "2c06e4af68b3a75d7b77cd310a0441ae4074eeff8faf236b54b62ca14e57a47b"
+    },
+    {
+      "relative_path": "doctoral_verification\\audit\\final_output_validation.json",
+      "sha256": "b9a4596f37a374ac0dbb7d42e0bb69658356786dd3ca0026208b9117ad92b48c"
+    },
+    {
+      "relative_path": "institute_catalogue\\audit\\output_validation.json",
+      "sha256": "4980acea32437d62e67fc5fc6e3b6af57a71f26f0033762f44c0c76217e5aeda"
+    },
+    {
+      "relative_path": "institute_catalogue\\round3\\audit\\final_handover.json",
+      "sha256": "fb57d94055462125c0b05cb07411c817448a3c85195202389eb84db9ac6a7223"
+    }
+  ],
+  "universities": {
+    "rows": 3240,
+    "columns": 43,
+    "confirmed_doctoral": 441,
+    "pending": 7,
+    "record_date": "2026-11-08",
+    "overlapping_985_211_double_first_tags_preserved": true
+  },
+  "institutes": {
+    "rows": 307,
+    "columns": 37,
+    "national_principals": 69,
+    "ucas_training_units": 139,
+    "other_training_units": 99,
+    "pending": 21,
+    "record_date": "2026-11-10",
+    "all_material_gaps_resolved": false
+  },
+  "identity_contract": [
+    "学校目录ID和学校标识码保持为字符串",
+    "985、211、双一流为独立重叠标签",
+    "机构ID、全国代码、内部培养代码、上级代码和记录层级分别保留",
+    "研究所标签不适用；培养单位不重复计为全国招生主体"
+  ],
+  "workflow_contract": {
+    "monitor_reads": "CSV files in this manifest, after hash verification",
+    "downstream_outputs": "Separate monitoring directory; never overwrite frozen tables",
+    "source_updates": "Explicit new baseline version and change log",
+    "pending_policy": "Retain known gaps; freeze does not certify coverage or current-year eligibility"
+  },
+  "user_constraints": {
+    "rsshub_requested": true,
+    "fully_free": true,
+    "always_on_local_device_available": false,
+    "notifications": [
+      "email",
+      "mobile_push"
+    ]
+  },
+  "deployment_performed": false,
+  "original_manifest_sha256": "e088ffc099da107b3acb3b103f04caca66acb901e98eb8c2a832e18a6fa73778"
+}

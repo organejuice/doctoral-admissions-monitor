@@ -1,0 +1,4666 @@
+{
+  "schema_version": "1.0",
+  "baseline_id": "doctoral-catalogues-20261110-v1",
+  "generated_at_utc": "2026-11-10T07:20:13.407244+00:00",
+  "selector_scope": "document",
+  "source_id_policy": "src_ + first16(SHA256(canonical_url))",
+  "budget_policy": {
+    "discovery_max_pages_per_source": 2,
+    "history_backfill_complete": false,
+    "min_body_characters_is_engineering_start_not_fullness_proof": true
+  },
+  "sources": [
+    {
+      "source_id": "src_d15965c263309999",
+      "url": "https://admission.pku.edu.cn/zsxx/bszs/index.htm",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "CN-U000001",
+          "role": "doctoral_publications",
+          "scope": "博士招生综合栏目",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "北京大学",
+      "transport": "html",
+      "list_selector": "ul.zsxx_cont_list",
+      "link_selector": "ul.zsxx_cont_list li a[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "https://admission.pku.edu.cn/docs/20261106140719031735.pdf",
+          "title": "北京大学2027年面向香港、澳门、台湾地区招收硕士研究生、博士研究生招生简章（校本部） 北京大学2027年面向香港、澳门、台湾地区招收硕士研究生、博士研究生招生简章（校本部）",
+          "evidence_year": "2027",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "admission.pku.edu.cn"
+      ],
+      "allowed_host_suffixes": [
+        "pku.edu.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete",
+        "next_page_probe": {
+          "source_id": "src_d15965c263309999",
+          "requested_url": "https://admission.pku.edu.cn/zsxx/bszs/index1.htm",
+          "final_url": "https://admission.pku.edu.cn/zsxx/bszs/index1.htm",
+          "http_status": 200,
+          "bytes": 23968,
+          "sha256": "23018ece27a6c31e01c309c37e91222d5522379de63c49d57f205bc08f598448",
+          "capture_file": "raw\\source_selection\\pagination\\52d16e4411065f7e3eb48b4ab0a825a18d66090aea340bd6b260035d362fb5fa.body",
+          "error": null,
+          "checked_at_utc": "2026-11-10T07:24:30.559791+00:00",
+          "method": "Normal public urllib GET; default TLS validation"
+        },
+        "verified_urls": [
+          "https://admission.pku.edu.cn/zsxx/bszs/index1.htm"
+        ]
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200
+      },
+      "selection_observation": {
+        "name": "北京大学",
+        "institution_id": "CN-U000001",
+        "url": "https://admission.pku.edu.cn/zsxx/bszs/index.htm",
+        "role": "doctoral_publications",
+        "requested_url": "https://admission.pku.edu.cn/zsxx/bszs/index.htm",
+        "final_url": "https://admission.pku.edu.cn/zsxx/bszs/index.htm",
+        "http_status": 200,
+        "headers": {
+          "Server": "nginx",
+          "Date": "Tue, 10 Nov 2026 07:09:16 GMT",
+          "Content-Type": "text/html",
+          "Content-Length": "23682",
+          "Connection": "close",
+          "Last-Modified": "Thu, 05 Nov 2026 05:57:50 GMT",
+          "ETag": "\"5c82-65f812cf5f380\"",
+          "Accept-Ranges": "bytes"
+        },
+        "checked_at_utc": "2026-11-10T07:09:17.045397+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\d15965c26330999985766d1f58baf174e38975210eaa205a13d4695fdd7e58bb.body",
+        "sha256": "acce65a9a160d4e1111a3802ba9a7f89bd1e19201aa441fde363bea736619584",
+        "bytes": 23682,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "expected_asset_types": [
+        "html",
+        "pdf"
+      ],
+      "selection_link_count": 20,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 20,
+        "capture_file": "raw\\source_selection\\live_public_get\\d15965c26330999985766d1f58baf174e38975210eaa205a13d4695fdd7e58bb.body",
+        "sha256": "acce65a9a160d4e1111a3802ba9a7f89bd1e19201aa441fde363bea736619584"
+      }
+    },
+    {
+      "source_id": "src_17b62d0c04841380",
+      "url": "https://yz.tsinghua.edu.cn/zsxx/bszs/jzml.htm",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "CN-U000003",
+          "role": "doctoral_publications",
+          "scope": "博士招生综合栏目",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "清华大学",
+      "transport": "html",
+      "list_selector": ".admission",
+      "link_selector": ".admission li a[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "https://yzbm.tsinghua.edu.cn/publish/s03/s0302/detail/410f1b12-e047-4f72-832f-3e39596f545a",
+          "title": "302026.10 清华大学马克思主义学院思政课骨干提升计划教育博士项目2027年博士研究生招生简章 清华大学马克思主义学院思政课骨干提升计划教育博士项目2027年博士研究生招生简章",
+          "evidence_year": "2027",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "yz.tsinghua.edu.cn",
+        "yzbm.tsinghua.edu.cn"
+      ],
+      "allowed_host_suffixes": [
+        "tsinghua.edu.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete"
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200
+      },
+      "selection_observation": {
+        "name": "清华大学",
+        "institution_id": "CN-U000003",
+        "url": "https://yz.tsinghua.edu.cn/zsxx/bszs/jzml.htm",
+        "role": "doctoral_publications",
+        "requested_url": "https://yz.tsinghua.edu.cn/zsxx/bszs/jzml.htm",
+        "final_url": "https://yz.tsinghua.edu.cn/zsxx/bszs/jzml.htm",
+        "http_status": 200,
+        "headers": {
+          "Date": "Tue, 10 Nov 2026 07:09:16 GMT",
+          "Content-Type": "text/html",
+          "Content-Length": "21865",
+          "Connection": "close",
+          "Last-Modified": "Fri, 30 Oct 2026 04:03:11 GMT",
+          "Accept-Ranges": "bytes",
+          "Content-Language": "zh-CN"
+        },
+        "checked_at_utc": "2026-11-10T07:09:16.997837+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\17b62d0c048413807fb9c6ce40dfbe219f3ec0dd3988b5f67556871100664fbd.body",
+        "sha256": "f0a5b58d54fbcf9059fc64e2b5877055bd0417575f78f23abc7d9ebb2c3f30b4",
+        "bytes": 21865,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "selection_link_count": 11,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 11,
+        "capture_file": "raw\\source_selection\\live_public_get\\17b62d0c048413807fb9c6ce40dfbe219f3ec0dd3988b5f67556871100664fbd.body",
+        "sha256": "f0a5b58d54fbcf9059fc64e2b5877055bd0417575f78f23abc7d9ebb2c3f30b4"
+      }
+    },
+    {
+      "source_id": "src_59023ec4baff95d6",
+      "url": "https://yz.cau.edu.cn/col/col41734/index.html",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "CN-U000018",
+          "role": "doctoral_publications",
+          "scope": "博士招生综合栏目",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "中国农业大学",
+      "transport": "html",
+      "list_selector": "li",
+      "link_selector": "li a[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "https://yz.cau.edu.cn/art/2026/10/22/art_41740_1142142.html",
+          "title": "中国农业大学研究生院 通知公告 中国农业大学2027年博士研究生招生章程",
+          "evidence_year": "2027",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "yz.cau.edu.cn"
+      ],
+      "allowed_host_suffixes": [
+        "cau.edu.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "published_datastore",
+        "next_selector": null,
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "embedded_first_page_10_records; proxy continuation requires separate validation",
+        "known_total_records": 10
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200,
+        "embedded_html": {
+          "selector": "script",
+          "contains": "<datastore>",
+          "cdata_records": true
+        },
+        "embedded_datastore": true
+      },
+      "selection_observation": {
+        "name": "中国农业大学",
+        "institution_id": "CN-U000018",
+        "url": "https://yz.cau.edu.cn/col/col41734/index.html",
+        "role": "doctoral_publications",
+        "requested_url": "https://yz.cau.edu.cn/col/col41734/index.html",
+        "final_url": "https://yz.cau.edu.cn/col/col41734/index.html",
+        "http_status": 200,
+        "headers": {
+          "Date": "Tue, 10 Nov 2026 07:09:16 GMT",
+          "Content-Type": "text/html",
+          "Content-Length": "8306",
+          "Connection": "close",
+          "Last-Modified": "Thu, 22 Oct 2026 00:48:35 GMT",
+          "ETag": "\"2072-65e633937dec0\"",
+          "Vary": "Accept-Encoding",
+          "Accept-Ranges": "bytes"
+        },
+        "checked_at_utc": "2026-11-10T07:09:17.033366+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\59023ec4baff95d672a6e162f1b3c7ea58dea868842392659c19cb25c5b80816.body",
+        "sha256": "cc7ee552a6458a0046f697496acd16434365e5f07c9a5039408cb1e822133c00",
+        "bytes": 8306,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "selection_link_count": 10,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 10,
+        "capture_file": "raw\\source_selection\\live_public_get\\59023ec4baff95d672a6e162f1b3c7ea58dea868842392659c19cb25c5b80816.body",
+        "sha256": "cc7ee552a6458a0046f697496acd16434365e5f07c9a5039408cb1e822133c00"
+      }
+    },
+    {
+      "source_id": "src_1c1b6f36afbac9d0",
+      "url": "https://yanjiusheng.bucm.edu.cn/zsjy/bszs/index.htm",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "CN-U000023",
+          "role": "doctoral_publications",
+          "scope": "博士招生综合栏目",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "北京中医药大学",
+      "transport": "html",
+      "list_selector": ".ul_list",
+      "link_selector": ".ul_list li a[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "https://yanjiusheng.bucm.edu.cn/zsjy/bszs/f323089c434e4d199890f62fb36ef916.htm",
+          "title": "关于北京中医药大学2026年”申请-审核制“博士生招生报名的通知_博士招生_北京中医药大学研究生院",
+          "evidence_year": "2026",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "yanjiusheng.bucm.edu.cn"
+      ],
+      "allowed_host_suffixes": [
+        "bucm.edu.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete",
+        "next_page_probe": {
+          "source_id": "src_1c1b6f36afbac9d0",
+          "requested_url": "https://yanjiusheng.bucm.edu.cn/zsjy/bszs/index1.htm",
+          "final_url": "https://yanjiusheng.bucm.edu.cn/zsjy/bszs/index1.htm",
+          "http_status": 200,
+          "bytes": 14065,
+          "sha256": "3c6a94aa43072d28b74370fa05d072ac01efb5c9d27499ccbbf74391cd3a8949",
+          "capture_file": "raw\\source_selection\\pagination\\a5ceb9a7f34d56cfb9601dfe96a7bb22e0d50328f6ecbb3fc86dc536ffa3c233.body",
+          "error": null,
+          "checked_at_utc": "2026-11-10T07:24:30.508813+00:00",
+          "method": "Normal public urllib GET; default TLS validation"
+        },
+        "verified_urls": [
+          "https://yanjiusheng.bucm.edu.cn/zsjy/bszs/index1.htm"
+        ]
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200
+      },
+      "selection_observation": {
+        "name": "北京中医药大学",
+        "institution_id": "CN-U000023",
+        "url": "https://yanjiusheng.bucm.edu.cn/zsjy/bszs/index.htm",
+        "role": "doctoral_publications",
+        "requested_url": "https://yanjiusheng.bucm.edu.cn/zsjy/bszs/index.htm",
+        "final_url": "https://yanjiusheng.bucm.edu.cn/zsjy/bszs/index.htm",
+        "http_status": 200,
+        "headers": {
+          "Server": "nginx",
+          "Date": "Tue, 10 Nov 2026 07:10:32 GMT",
+          "Content-Type": "text/html",
+          "Content-Length": "14305",
+          "Last-Modified": "Mon, 22 Jun 2026 02:19:22 GMT",
+          "Connection": "close",
+          "ETag": "\"6a389baa-37e1\"",
+          "Accept-Ranges": "bytes"
+        },
+        "checked_at_utc": "2026-11-10T07:09:16.969796+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\1c1b6f36afbac9d0f76b28f782a2d448073c7ff005027ad32426c32640e963ba.body",
+        "sha256": "ec2bbdc2a5ae77809ade7fb236a9a3bf1d1b197ef0303d2b648041b670c9ba43",
+        "bytes": 14305,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "selection_link_count": 20,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 20,
+        "capture_file": "raw\\source_selection\\live_public_get\\1c1b6f36afbac9d0f76b28f782a2d448073c7ff005027ad32426c32640e963ba.body",
+        "sha256": "ec2bbdc2a5ae77809ade7fb236a9a3bf1d1b197ef0303d2b648041b670c9ba43"
+      }
+    },
+    {
+      "source_id": "src_305158ae3dbf0b02",
+      "url": "https://gsao.fudan.edu.cn/15015/list.htm",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "CN-U000684",
+          "role": "doctoral_publications",
+          "scope": "简章目录发布栏目（硕博及专项混合）",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "复旦大学",
+      "transport": "html",
+      "list_selector": "li.cols",
+      "link_selector": "li.cols .cols_title a[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".wp_articlecontent",
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "https://gsao.fudan.edu.cn/79/3c/c15015a751932/page.htm",
+          "title": "复旦大学2026年招收攻读博士学位研究生章程",
+          "evidence_year": "2026",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "gsao.fudan.edu.cn"
+      ],
+      "allowed_host_suffixes": [
+        "fudan.edu.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete",
+        "cms_family": "webplus",
+        "next_page_probe": {
+          "source_id": "src_305158ae3dbf0b02",
+          "requested_url": "https://gsao.fudan.edu.cn/15015/list2.htm",
+          "final_url": "https://gsao.fudan.edu.cn/15015/list2.htm",
+          "http_status": 200,
+          "bytes": 33589,
+          "sha256": "36177588530f80ebecf59d47f9462ff891c4671c1e791037a3747410bebe68d7",
+          "capture_file": "raw\\source_selection\\pagination\\e80dff75b8f543560c96edaa7af81530a088dbe57bf27c16a4f2aa2c79ac1622.body",
+          "error": null,
+          "checked_at_utc": "2026-11-10T07:24:30.776478+00:00",
+          "method": "Normal public urllib GET; default TLS validation"
+        },
+        "verified_urls": [
+          "https://gsao.fudan.edu.cn/15015/list2.htm"
+        ]
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200
+      },
+      "selection_observation": {
+        "name": "复旦大学",
+        "institution_id": "CN-U000684",
+        "url": "https://gsao.fudan.edu.cn/15015/list.htm",
+        "role": "doctoral_publications",
+        "requested_url": "https://gsao.fudan.edu.cn/15015/list.htm",
+        "final_url": "https://gsao.fudan.edu.cn/15015/list.htm",
+        "http_status": 200,
+        "headers": {
+          "Server": "nginx",
+          "Date": "Tue, 10 Nov 2026 07:09:16 GMT",
+          "Content-Type": "text/html",
+          "Transfer-Encoding": "chunked",
+          "Connection": "close",
+          "accept-ranges": "bytes",
+          "vary": "Accept-Encoding",
+          "x-envoy-upstream-service-time": "0",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Content-Type-Options": "nosniff",
+          "X-XSS-Protection": "1; mode=block",
+          "Content-Security-Policy": "frame-ancestors 'self'",
+          "Referrer-Policy": "origin",
+          "X-Permitted-Cross-Domain-Policies": "master-only",
+          "X-Download-Options": "noopen",
+          "Permissions-Policy": "geolocation=(), camera=(), microphone=(), payment=(), usb=(), fullscreen=(self), autoplay=()",
+          "Cross-Origin-Opener-Policy": "same-origin",
+          "Cross-Origin-Resource-Policy": "cross-origin",
+          "Access-Control-Allow-Origin": "*"
+        },
+        "checked_at_utc": "2026-11-10T07:09:17.115933+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\305158ae3dbf0b02f240190ca4a0fa5de977920b0c6379b9efb6e47545c4e190.body",
+        "sha256": "db80c41810fdb006f9cae49424c56d925f10d87f5fd7c9590179761eff606f28",
+        "bytes": 33848,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "selection_link_count": 14,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 14,
+        "capture_file": "raw\\source_selection\\live_public_get\\305158ae3dbf0b02f240190ca4a0fa5de977920b0c6379b9efb6e47545c4e190.body",
+        "sha256": "db80c41810fdb006f9cae49424c56d925f10d87f5fd7c9590179761eff606f28"
+      }
+    },
+    {
+      "source_id": "src_52f3636e60e79dad",
+      "url": "https://yzb.sjtu.edu.cn/zsjz/bsszs",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "CN-U000686",
+          "role": "doctoral_publications",
+          "scope": "博士招生简章栏目",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "上海交通大学",
+      "transport": "html",
+      "list_selector": ".content-body .list",
+      "link_selector": ".content-body .list a.item[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "https://yzb.sjtu.edu.cn/post/3766",
+          "title": "上海交通大学2027年“医工交叉平台”博士研究生招生简章",
+          "evidence_year": "2027",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "yzb.sjtu.edu.cn"
+      ],
+      "allowed_host_suffixes": [
+        "sjtu.edu.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "query_template",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete",
+        "url_template": "https://yzb.sjtu.edu.cn/zsjz/bsszs?page={page}&c=202",
+        "start_page": 2,
+        "template_evidence": "Published inline jump(page) function; total14,limit10",
+        "next_page_probe": {
+          "source_id": "src_52f3636e60e79dad",
+          "requested_url": "https://yzb.sjtu.edu.cn/zsjz/bsszs?page=2&c=202",
+          "final_url": "https://yzb.sjtu.edu.cn/zsjz/bsszs?page=2&c=202",
+          "http_status": 200,
+          "bytes": 51391,
+          "sha256": "3c7ac463b66c43100c0f69e006c8170bdc78c5aa61b289b4bdf8ca4fd3447133",
+          "capture_file": "raw\\source_selection\\pagination\\3cd7d15815dd69c1908f911d7b1c45bd19f74e514192c4f56870c97e91717541.body",
+          "error": null,
+          "checked_at_utc": "2026-11-10T07:24:31.003027+00:00",
+          "method": "Normal public urllib GET; default TLS validation"
+        },
+        "verified_urls": [
+          "https://yzb.sjtu.edu.cn/zsjz/bsszs?page=2&c=202"
+        ]
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200
+      },
+      "selection_observation": {
+        "name": "上海交通大学",
+        "institution_id": "CN-U000686",
+        "url": "https://yzb.sjtu.edu.cn/zsjz/bsszs",
+        "role": "doctoral_publications",
+        "requested_url": "https://yzb.sjtu.edu.cn/zsjz/bsszs",
+        "final_url": "https://yzb.sjtu.edu.cn/zsjz/bsszs",
+        "http_status": 200,
+        "headers": {
+          "Content-Security-Policy": "upgrade-insecure-requests",
+          "Server": "",
+          "Content-Type": "text/html; charset=UTF-8",
+          "Transfer-Encoding": "chunked",
+          "Connection": "close",
+          "Vary": "Accept-Encoding",
+          "X-Powered-By": "PHP/7.3.33",
+          "Cache-Control": "no-cache, private",
+          "Date": "Tue, 10 Nov 2026 07:09:16 GMT"
+        },
+        "checked_at_utc": "2026-11-10T07:09:17.531073+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\52f3636e60e79dad4be7753adeae68c8cbc8d084fed9ca65a0affc659153242b.body",
+        "sha256": "eb8d22260ded8f4bf825a2f8acd20fd1091c1d0e32a9aba960f7e822480fad27",
+        "bytes": 54914,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "selection_link_count": 10,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 10,
+        "capture_file": "raw\\source_selection\\live_public_get\\52f3636e60e79dad4be7753adeae68c8cbc8d084fed9ca65a0affc659153242b.body",
+        "sha256": "eb8d22260ded8f4bf825a2f8acd20fd1091c1d0e32a9aba960f7e822480fad27"
+      }
+    },
+    {
+      "source_id": "src_49fa993ee6d7e1eb",
+      "url": "https://yjsy.shutcm.edu.cn/1118/list.htm",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "CN-U000695",
+          "role": "doctoral_publications",
+          "scope": "研招通知混合栏目（含博士公告）",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "上海中医药大学",
+      "transport": "html",
+      "list_selector": ".Article_Title",
+      "link_selector": ".Article_Title a[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".wp_articlecontent",
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "https://yjsy.shutcm.edu.cn/2026/0701/c1142a175061/page.htm",
+          "title": "上海中医药大学2026年在职人员以同等学力申请中医博士专业学位招生简章",
+          "evidence_year": "2026",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "yjsy.shutcm.edu.cn"
+      ],
+      "allowed_host_suffixes": [
+        "shutcm.edu.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete",
+        "cms_family": "webplus"
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200
+      },
+      "selection_observation": {
+        "name": "上海中医药大学",
+        "institution_id": "CN-U000695",
+        "url": "https://yjsy.shutcm.edu.cn/1118/list.htm",
+        "role": "doctoral_publications",
+        "requested_url": "https://yjsy.shutcm.edu.cn/1118/list.htm",
+        "final_url": "https://yjsy.shutcm.edu.cn/1118/list.htm",
+        "http_status": 200,
+        "headers": {
+          "Date": "Tue, 10 Nov 2026 07:09:16 GMT",
+          "Content-Type": "text/html",
+          "Transfer-Encoding": "chunked",
+          "Connection": "close",
+          "Vary": "Accept-Encoding",
+          "Accept-Ranges": "bytes",
+          "X-Frame-Options": "ALLOW-FROM  https://sdda.shutcm.edu.cn",
+          "Strict-Transport-Security": "max-age=63072001; includeSubdomains; preload",
+          "X-XSS-Protection": "1; mode=block",
+          "Content-Security-Policy": "default-src * 'unsafe-inline' 'unsafe-eval' data: https:",
+          "X-Content-Type-Options": "nosniff",
+          "X-Via-JSL": "f3cd24f,-",
+          "X-Cache": "bypass"
+        },
+        "checked_at_utc": "2026-11-10T07:09:17.218971+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\49fa993ee6d7e1eb70b392af70276820a838b2a8345673735ed536c6451b5129.body",
+        "sha256": "aed79f63ea504604a31a4205519b502044c683066a1521ed80257c8fbdee3eee",
+        "bytes": 21578,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "selection_link_count": 10,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 10,
+        "capture_file": "raw\\source_selection\\live_public_get\\49fa993ee6d7e1eb70b392af70276820a838b2a8345673735ed536c6451b5129.body",
+        "sha256": "aed79f63ea504604a31a4205519b502044c683066a1521ed80257c8fbdee3eee"
+      }
+    },
+    {
+      "source_id": "src_3607e8d4cb5af58d",
+      "url": "https://yjszs.njmu.edu.cn/10189/list.htm",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "CN-U000771",
+          "role": "doctoral_publications",
+          "scope": "博士招生简章栏目",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "南京医科大学",
+      "transport": "html",
+      "list_selector": ".news_title",
+      "link_selector": ".news_title a[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".wp_articlecontent",
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "https://yjszs.njmu.edu.cn/2026/1013/c10171a307820/page.htm",
+          "title": "南京医科大学2027年全日制博士研究生招生简章及招生专业目录",
+          "evidence_year": "2027",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "yjszs.njmu.edu.cn"
+      ],
+      "allowed_host_suffixes": [
+        "njmu.edu.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete",
+        "cms_family": "webplus"
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200
+      },
+      "selection_observation": {
+        "name": "南京医科大学",
+        "institution_id": "CN-U000771",
+        "url": "https://yjszs.njmu.edu.cn/10189/list.htm",
+        "role": "doctoral_publications",
+        "requested_url": "https://yjszs.njmu.edu.cn/10189/list.htm",
+        "final_url": "https://yjszs.njmu.edu.cn/10189/list.htm",
+        "http_status": 200,
+        "headers": {
+          "Server": "******",
+          "Content-Type": "text/html",
+          "Transfer-Encoding": "chunked",
+          "Connection": "close",
+          "Date": "Tue, 10 Nov 2026 07:09:16 GMT",
+          "x-frame-options": "SAMEORIGIN",
+          "frame-options": "SAMEORIGIN",
+          "accept-ranges": "bytes",
+          "vary": "Accept-Encoding",
+          "x-envoy-upstream-service-time": "0",
+          "X-Frame-Options": "SAMEORIGIN"
+        },
+        "checked_at_utc": "2026-11-10T07:09:17.417310+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\3607e8d4cb5af58dac25d19e7f5a2b5e2acc23de3122c352c5bf51feebe9870a.body",
+        "sha256": "668d278f5a52aef8be00950f87fd7826513fbd32daeae965949a8b2d008ac6ea",
+        "bytes": 22711,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "selection_link_count": 7,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 7,
+        "capture_file": "raw\\source_selection\\live_public_get\\3607e8d4cb5af58dac25d19e7f5a2b5e2acc23de3122c352c5bf51feebe9870a.body",
+        "sha256": "668d278f5a52aef8be00950f87fd7826513fbd32daeae965949a8b2d008ac6ea"
+      }
+    },
+    {
+      "source_id": "src_1004e9e6661f17a2",
+      "url": "https://gra.njucm.edu.cn/zsjz_7321/list.htm",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "CN-U000773",
+          "role": "doctoral_publications",
+          "scope": "博士招生简章目录",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "南京中医药大学",
+      "transport": "html",
+      "list_selector": ".news_title",
+      "link_selector": ".news_title a[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".wp_articlecontent",
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "https://gra.njucm.edu.cn/2026/1106/c7277a173406/page.htm",
+          "title": "南京中医药大学2027年全日制博士研究生招生章程",
+          "evidence_year": "2027",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "gra.njucm.edu.cn"
+      ],
+      "allowed_host_suffixes": [
+        "njucm.edu.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete",
+        "cms_family": "webplus",
+        "next_page_probe": {
+          "source_id": "src_1004e9e6661f17a2",
+          "requested_url": "https://gra.njucm.edu.cn/zsjz_7321/list2.htm",
+          "final_url": "https://gra.njucm.edu.cn/zsjz_7321/list2.htm",
+          "http_status": 200,
+          "bytes": 25272,
+          "sha256": "bab4b7acf76431f7f90c936c9e271bbae436366ded41ada023ca79c78769746c",
+          "capture_file": "raw\\source_selection\\pagination\\246cff2b146fbf1723f7f7b3b44a94779d2f016bbffcbbbaa56fd8cf593e86a6.body",
+          "error": null,
+          "checked_at_utc": "2026-11-10T07:24:30.587488+00:00",
+          "method": "Normal public urllib GET; default TLS validation"
+        },
+        "verified_urls": [
+          "https://gra.njucm.edu.cn/zsjz_7321/list2.htm"
+        ]
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200
+      },
+      "selection_observation": {
+        "name": "南京中医药大学",
+        "institution_id": "CN-U000773",
+        "url": "https://gra.njucm.edu.cn/zsjz_7321/list.htm",
+        "role": "doctoral_publications",
+        "requested_url": "https://gra.njucm.edu.cn/zsjz_7321/list.htm",
+        "final_url": "https://gra.njucm.edu.cn/zsjz_7321/list.htm",
+        "http_status": 200,
+        "headers": {
+          "Server": "none",
+          "Date": "Tue, 10 Nov 2026 07:09:16 GMT",
+          "Content-Type": "text/html",
+          "Transfer-Encoding": "chunked",
+          "Connection": "close",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Frame-Options": "SAMEORIGIN",
+          "X-Permitted-Cross-Domain-Policies": "master-only",
+          "Strict-Transport-Security": "max-age = 16070400",
+          "Accept-Ranges": "bytes",
+          "Vary": "Accept-Encoding",
+          "X-Content-Type-Options": "nosniff",
+          "X-XSS-Protection": "1; mode=block",
+          "Content-Security-Policy": "default-src * 'unsafe-inline' 'unsafe-eval' data: https:",
+          "X-Download-Options": "noopen",
+          "Referrer-Policy": "no-referrer-when-downgrade"
+        },
+        "checked_at_utc": "2026-11-10T07:09:17.424751+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\1004e9e6661f17a2c43afaa4b1aa1a30ba60f228fce5adde080ff3682c1d374a.body",
+        "sha256": "8fdadc7f4c3e8b141b67c6daa0b2fa1aab9f979f052f3a6176a1bdec0a3f04a1",
+        "bytes": 25004,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "selection_link_count": 14,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 14,
+        "capture_file": "raw\\source_selection\\live_public_get\\1004e9e6661f17a2c43afaa4b1aa1a30ba60f228fce5adde080ff3682c1d374a.body",
+        "sha256": "8fdadc7f4c3e8b141b67c6daa0b2fa1aab9f979f052f3a6176a1bdec0a3f04a1"
+      }
+    },
+    {
+      "source_id": "src_cf94796b64bf1a64",
+      "url": "https://grs.henu.edu.cn/zsxx/bszs___.htm",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "CN-U001558",
+          "role": "doctoral_publications",
+          "scope": "博士招生综合栏目",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "河南大学",
+      "transport": "html",
+      "list_selector": ".content_list_box",
+      "link_selector": ".content_list_box a[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "https://grs.henu.edu.cn/info/1110/58992.htm",
+          "title": "河南大学2026年专业学位博士研究生招生简章 （第三轮）-河南大学-研究生院",
+          "evidence_year": "2026",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "grs.henu.edu.cn"
+      ],
+      "allowed_host_suffixes": [
+        "henu.edu.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete",
+        "next_page_probe": {
+          "source_id": "src_cf94796b64bf1a64",
+          "requested_url": "https://grs.henu.edu.cn/zsxx/bszs___/4.htm",
+          "final_url": "https://grs.henu.edu.cn/zsxx/bszs___/4.htm",
+          "http_status": 200,
+          "bytes": 52074,
+          "sha256": "c5a682f7cc87f55d8d98088cab0197735e7ce0ce25b892796494a68bc4027b01",
+          "capture_file": "raw\\source_selection\\pagination\\a7f27bb0173c9f7fb89151828eeadf2712ebc84ea4fef7160e3489cfad091822.body",
+          "error": null,
+          "checked_at_utc": "2026-11-10T07:24:30.731321+00:00",
+          "method": "Normal public urllib GET; default TLS validation"
+        },
+        "verified_urls": [
+          "https://grs.henu.edu.cn/zsxx/bszs___/4.htm"
+        ]
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200
+      },
+      "selection_observation": {
+        "name": "河南大学",
+        "institution_id": "CN-U001558",
+        "url": "https://grs.henu.edu.cn/zsxx/bszs___.htm",
+        "role": "doctoral_publications",
+        "requested_url": "https://grs.henu.edu.cn/zsxx/bszs___.htm",
+        "final_url": "https://grs.henu.edu.cn/zsxx/bszs___.htm",
+        "http_status": 200,
+        "headers": {
+          "Content-Type": "text/html",
+          "Transfer-Encoding": "chunked",
+          "Connection": "close",
+          "Server": "WebServer/X.X.X",
+          "Date": "Tue, 10 Nov 2026 07:09:16 GMT",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-XSS-Protection": "1; mode=block",
+          "X-Content-Type-Options": "nosniff",
+          "Referrer-Policy": "no-referrer-when-downgrade",
+          "X-Download-Options": "noopen",
+          "X-Permitted-Cross-Domain-Policies": "master-only",
+          "Content-Security-Policy": "default-src 'self' data: blob: *.henu.edu.cn *.bcebos.com *.conac.cn *.eol.cn *.staticfile.net *.edu.cn *.staticfile.org *.jiathis.com *.baidu.com *.bshare.cn *.qq.com *.kaipuyun.cn 'unsafe-inline' 'unsafe-eval'; connect-src 'self' http://10.91.21.100:8892;",
+          "Last-Modified": "Fri, 06 Nov 2026 16:05:59 GMT",
+          "Accept-Ranges": "bytes",
+          "Vary": "User-Agent,Accept-Encoding",
+          "Cache-Control": "private, max-age=600",
+          "Expires": "Tue, 10 Nov 2026 07:19:16 GMT",
+          "ETag": "\"c9ee-65f9dc9bc41c6-gzip\"",
+          "Content-Language": "zh-CN"
+        },
+        "checked_at_utc": "2026-11-10T07:09:17.733639+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\cf94796b64bf1a64a4946cd7ee635c1c378f04c9ff22d9e7c99f28bec8b21594.body",
+        "sha256": "f1486861f5b72947fa30b590f5730b823b94287edd84f9cf2a9314408e222120",
+        "bytes": 51694,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "selection_link_count": 20,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 20,
+        "capture_file": "raw\\source_selection\\live_public_get\\cf94796b64bf1a64a4946cd7ee635c1c378f04c9ff22d9e7c99f28bec8b21594.body",
+        "sha256": "f1486861f5b72947fa30b590f5730b823b94287edd84f9cf2a9314408e222120"
+      }
+    },
+    {
+      "source_id": "src_148c1f7de4b50c8b",
+      "url": "https://yz.szu.edu.cn/bszs/gg.htm",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "CN-U002031",
+          "role": "doctoral_publications",
+          "scope": "博士招生综合栏目",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "深圳大学",
+      "transport": "html",
+      "list_selector": ".list",
+      "link_selector": ".list li a[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "https://yz.szu.edu.cn/info/1011/14126.htm",
+          "title": "深圳大学2026年博士研究生招生章程-深圳大学研究生招生网",
+          "evidence_year": "2026",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "yz.szu.edu.cn"
+      ],
+      "allowed_host_suffixes": [
+        "szu.edu.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete",
+        "next_page_probe": {
+          "source_id": "src_148c1f7de4b50c8b",
+          "requested_url": "https://yz.szu.edu.cn/bszs/gg/14.htm",
+          "final_url": "https://yz.szu.edu.cn/bszs/gg/14.htm",
+          "http_status": 200,
+          "bytes": 13647,
+          "sha256": "e3202d9ec4f3ddb60c34c7684422802a1948a6646ef35d00302699172b153074",
+          "capture_file": "raw\\source_selection\\pagination\\aead18bfec917336264fe5dafe7eaf80ca68eeac2007482f793b80d7773ec8d6.body",
+          "error": null,
+          "checked_at_utc": "2026-11-10T07:24:31.001707+00:00",
+          "method": "Normal public urllib GET; default TLS validation"
+        },
+        "verified_urls": [
+          "https://yz.szu.edu.cn/bszs/gg/14.htm"
+        ]
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200
+      },
+      "selection_observation": {
+        "name": "深圳大学",
+        "institution_id": "CN-U002031",
+        "url": "https://yz.szu.edu.cn/bszs/gg.htm",
+        "role": "doctoral_publications",
+        "requested_url": "https://yz.szu.edu.cn/bszs/gg.htm",
+        "final_url": "https://yz.szu.edu.cn/bszs/gg.htm",
+        "http_status": 200,
+        "headers": {
+          "Server": "none",
+          "Date": "Tue, 10 Nov 2026 07:09:16 GMT",
+          "Content-Type": "text/html",
+          "Transfer-Encoding": "chunked",
+          "Connection": "close",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-XSS-Protection": "1; mode=block",
+          "X-Content-Type-Options": "nosniff",
+          "Referrer-Policy": "no-referrer-when-downgrade",
+          "X-Download-Options": "noopen",
+          "X-Permitted-Cross-Domain-Policies": "master-only",
+          "Permissions-Policy": "geolocation=(self), microphone=()",
+          "Content-Security-Policy": "default-src 'self' data: blob: *.vsbclub.com *.szu.edu.cn https://agent.vsbclub.com:90 https://newagent.vsbclub.com *.conac.cn *.gov.cn *.hyperos.mi.com *.baidu.com *.sec.miui.com  *.eol.cn *.qq.com *.kaipuyun.cn *.bdimg.com *.wx.qq.com *.people.com.cn *.weibo.com *.m1905.cn 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'self';",
+          "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+          "Accept-Ranges": "bytes",
+          "Vary": "User-Agent,Accept-Encoding",
+          "Cache-Control": "private, max-age=600",
+          "Expires": "Tue, 10 Nov 2026 07:19:16 GMT",
+          "Content-Language": "zh-CN"
+        },
+        "checked_at_utc": "2026-11-10T07:09:17.489395+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\148c1f7de4b50c8bdd2d8ab73721ac044a909e609b480fce426dab780015e3c0.body",
+        "sha256": "30fa21eab7f423046989971226f9e06dad90571855afb0579a0b0264c15aad8f",
+        "bytes": 13564,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "selection_link_count": 20,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 20,
+        "capture_file": "raw\\source_selection\\live_public_get\\148c1f7de4b50c8bdd2d8ab73721ac044a909e609b480fce426dab780015e3c0.body",
+        "sha256": "30fa21eab7f423046989971226f9e06dad90571855afb0579a0b0264c15aad8f"
+      }
+    },
+    {
+      "source_id": "src_189f979cca53141f",
+      "url": "https://yjsy.cqut.edu.cn/",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "CN-U002312",
+          "role": "graduate_discovery",
+          "scope": "招生入口发现任务；不能当作博士栏目接入",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "重庆理工大学",
+      "transport": "html",
+      "list_selector": "main",
+      "link_selector": "main a[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [],
+      "allowed_hosts": [
+        "yjsy.cqut.edu.cn",
+        "yz.chsi.com.cn"
+      ],
+      "allowed_host_suffixes": [
+        "cqut.edu.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": "冻结表博士栏目未定位；本轮研招入口HTTP202挑战，不能当正常空列表",
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete"
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200,
+        "reject_http_statuses": [
+          202
+        ]
+      },
+      "selection_observation": {
+        "name": "重庆理工大学",
+        "institution_id": "CN-U002312",
+        "url": "https://yjsy.cqut.edu.cn/",
+        "role": "graduate_discovery",
+        "requested_url": "https://yjsy.cqut.edu.cn/",
+        "final_url": "https://yjsy.cqut.edu.cn/",
+        "http_status": 202,
+        "headers": {
+          "Server": "******",
+          "Date": "Tue, 10 Nov 2026 07:09:16 GMT",
+          "Content-Type": "text/html; charset=utf-8",
+          "Transfer-Encoding": "chunked",
+          "Connection": "close"
+        },
+        "checked_at_utc": "2026-11-10T07:09:17.531073+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\189f979cca53141f861709da3012ee7e4181f2c1fc38ca7751b5236e5fcdc3e1.body",
+        "sha256": "3cf0bba09bc7425344bb3e506ec35e500d51fa9baff88160018cafe8f6616446",
+        "bytes": 2412,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "feed_expected_failure": true,
+      "selection_link_count": 0,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 0,
+        "capture_file": "raw\\source_selection\\live_public_get\\189f979cca53141f861709da3012ee7e4181f2c1fc38ca7751b5236e5fcdc3e1.body",
+        "sha256": "3cf0bba09bc7425344bb3e506ec35e500d51fa9baff88160018cafe8f6616446"
+      }
+    },
+    {
+      "source_id": "src_9f0110a03850b4f5",
+      "url": "https://admission.ucas.ac.cn/ShowArticle/newslist1/90a894e4-866c-4db5-8d65-d72606a323cb",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "CN-U000066",
+          "role": "doctoral_publications",
+          "scope": "博士招生综合栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80002",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80005",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80007",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80008",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80009",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80010",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80012",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80014",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80017",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80018",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80022",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80023",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80024",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80025",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80028",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80029",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80030",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80032",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80033",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80035",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80036",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80038",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80039",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80040",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80041",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80042",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80043",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80045",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80046",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80054",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80055",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80058",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80060",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80061",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80062",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80063",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80065",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80068",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80069",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80073",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80075",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80076",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80080",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80081",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80082",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80083",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80084",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80085",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80086",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80087",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80088",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80089",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80090",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80092",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80093",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80094",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80096",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80102",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80103",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80104",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80105",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80106",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80107",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80108",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80110",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80112",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80113",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80119",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80121",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80122",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80123",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80124",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80125",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80126",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80127",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80128",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80132",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80133",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80135",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80136",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80138",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80139",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80140",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80142",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80143",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80146",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80147",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80148",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80150",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80151",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80153",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80155",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80156",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80158",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80159",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80160",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80162",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80164",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80165",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80166",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80167",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80171",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80173",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80174",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80175",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80177",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80179",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80180",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80181",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80182",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80184",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80185",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80186",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80187",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80188",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80189",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80190",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80191",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80192",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80193",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80194",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80195",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80196",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80197",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80200",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80201",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80202",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80204",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80206",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80208",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80212",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80213",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80216",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80228",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80229",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80232",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80233",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-14430-80234",
+          "role": "official_backup",
+          "scope": "国科大统一博士发布栏目（共享，不替代各所独立栏目）",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "中国科学院大学",
+      "transport": "html",
+      "list_selector": "ul.b-list",
+      "link_selector": "ul.b-list li a[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "https://admission.ucas.ac.cn/ShowArticle/Article/047420c8-14ba-442f-b09c-ee3b2f2c29f3/3f25c8c9-9f7f-44a0-91a4-9ac933bc8534",
+          "title": "中国科学院大学2027年博士研究生招生章程",
+          "evidence_year": "2027",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "admission.ucas.ac.cn"
+      ],
+      "allowed_host_suffixes": [
+        "ucas.ac.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete"
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200
+      },
+      "selection_observation": {
+        "name": "中国科学院大学",
+        "institution_id": "CN-U000066",
+        "url": "https://admission.ucas.ac.cn/ShowArticle/newslist1/90a894e4-866c-4db5-8d65-d72606a323cb",
+        "role": "doctoral_publications",
+        "requested_url": "https://admission.ucas.ac.cn/ShowArticle/newslist1/90a894e4-866c-4db5-8d65-d72606a323cb",
+        "final_url": "https://admission.ucas.ac.cn/ShowArticle/newslist1/90a894e4-866c-4db5-8d65-d72606a323cb",
+        "http_status": 200,
+        "headers": {
+          "Server": "none",
+          "Date": "Tue, 10 Nov 2026 07:09:16 GMT",
+          "Content-Type": "text/html; charset=utf-8",
+          "Transfer-Encoding": "chunked",
+          "Connection": "close",
+          "Cache-Control": "private",
+          "X-AspNetMvc-Version": "4.0",
+          "X-AspNet-Version": "4.0.30319",
+          "X-Powered-By": "ASP.NET",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Strict-Transport-Security": "max-age=15768000"
+        },
+        "checked_at_utc": "2026-11-10T07:09:17.443915+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\9f0110a03850b4f5e47b450400f21538fd6efabbbed64d1af5bb07513a224dff.body",
+        "sha256": "379fc4d26b14b09e4513f3b8c7976aad7b60c5718d56029e819314cfb4e32e5c",
+        "bytes": 23742,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "selection_link_count": 2,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 2,
+        "capture_file": "raw\\source_selection\\live_public_get\\9f0110a03850b4f5e47b450400f21538fd6efabbbed64d1af5bb07513a224dff.body",
+        "sha256": "379fc4d26b14b09e4513f3b8c7976aad7b60c5718d56029e819314cfb4e32e5c"
+      }
+    },
+    {
+      "source_id": "src_429be6e73bc9c0e9",
+      "url": "https://gs.caas.cn/zsgz/bszs/index.htm",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "N-82101",
+          "role": "doctoral_publications",
+          "scope": "博士招生专栏",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-001",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-002",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-003",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-004",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-005",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-006",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-007",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-008",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-009",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-010",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-011",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-012",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-013",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-014",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-015",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-016",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-017",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-018",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-019",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-020",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-021",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-022",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-023",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-024",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-025",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-026",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-028",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-029",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-030",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-031",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-032",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-033",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-034",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-035",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82101-036",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "中国农业科学院",
+      "transport": "html",
+      "list_selector": "ul.list01",
+      "link_selector": "ul.list01 li a[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "https://gs.caas.cn/zsgz/bszs/c7dc5f89467045c9aa957e8cbc221ad2.htm",
+          "title": "中国农业科学院2026年博士研究生招生章程",
+          "evidence_year": "2026",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "gs.caas.cn"
+      ],
+      "allowed_host_suffixes": [
+        "caas.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete",
+        "next_page_probe": {
+          "source_id": "src_429be6e73bc9c0e9",
+          "requested_url": "https://gs.caas.cn/zsgz/bszs/index1.htm",
+          "final_url": "https://gs.caas.cn/zsgz/bszs/index1.htm",
+          "http_status": 200,
+          "bytes": 24051,
+          "sha256": "b8d0e55877a590fb45bddf50c1e5a5d95fcdc42603e2a6e55c4d25d61d3f1b06",
+          "capture_file": "raw\\source_selection\\pagination\\9f1e227729d6268843fbf1764792433dadd0ac7b16ca513d544c71588553e95e.body",
+          "error": null,
+          "checked_at_utc": "2026-11-10T07:24:32.301307+00:00",
+          "method": "Normal public urllib GET; default TLS validation"
+        },
+        "verified_urls": [
+          "https://gs.caas.cn/zsgz/bszs/index1.htm"
+        ]
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200
+      },
+      "selection_observation": {
+        "name": "中国农业科学院",
+        "institution_id": "N-82101",
+        "url": "https://gs.caas.cn/zsgz/bszs/index.htm",
+        "role": "doctoral_publications",
+        "requested_url": "https://gs.caas.cn/zsgz/bszs/index.htm",
+        "final_url": "https://gs.caas.cn/zsgz/bszs/index.htm",
+        "http_status": 200,
+        "headers": {
+          "Server": "nginx",
+          "Date": "Tue, 10 Nov 2026 07:09:17 GMT",
+          "Content-Type": "text/html",
+          "Content-Length": "24183",
+          "Last-Modified": "Tue, 23 Jun 2026 09:13:08 GMT",
+          "Connection": "close",
+          "ETag": "\"6a3a4e24-5e77\"",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Content-Type-Options": "nosniff",
+          "X-XSS-Protection": "1; mode=block",
+          "Content-Security-Policy": "script-src * 'unsafe-inline' 'unsafe-eval'",
+          "Strict-Transport-Security": "max-age=63072000",
+          "Accept-Ranges": "bytes"
+        },
+        "checked_at_utc": "2026-11-10T07:09:18.918020+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\429be6e73bc9c0e92a0072aedb86c04b9172e702d0ac413c340775b558653591.body",
+        "sha256": "2864f48d5dadd6450be2a31e94bd537547b2c5757341bb192ea59af391aa99c8",
+        "bytes": 24183,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "selection_link_count": 20,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 20,
+        "capture_file": "raw\\source_selection\\live_public_get\\429be6e73bc9c0e92a0072aedb86c04b9172e702d0ac413c340775b558653591.body",
+        "sha256": "2864f48d5dadd6450be2a31e94bd537547b2c5757341bb192ea59af391aa99c8"
+      }
+    },
+    {
+      "source_id": "src_224abf91b624cdad",
+      "url": "https://yjs.caf.ac.cn/yjszs/bszs.htm",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "N-82201",
+          "role": "doctoral_publications",
+          "scope": "博士招生专栏",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82201-001",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82201-002",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82201-003",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82201-004",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82201-005",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82201-006",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82201-007",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82201-008",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82201-009",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82201-012",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82201-013",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生栏目",
+          "doctoral_fact_confirmed": false
+        },
+        {
+          "institution_id": "T-82201-014",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生栏目",
+          "doctoral_fact_confirmed": false
+        },
+        {
+          "institution_id": "T-82201-015",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82201-016",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82201-017",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生栏目",
+          "doctoral_fact_confirmed": false
+        },
+        {
+          "institution_id": "T-82201-025",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生栏目",
+          "doctoral_fact_confirmed": false
+        },
+        {
+          "institution_id": "T-82201-027",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生栏目",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "中国林业科学研究院",
+      "transport": "html",
+      "list_selector": "ul.ss",
+      "link_selector": "ul.ss li a[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "https://yjs.caf.ac.cn/info/1053/6552.htm",
+          "title": "中国林业科学研究院2027年博士研究生招生章程",
+          "evidence_year": "2027",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "yjs.caf.ac.cn"
+      ],
+      "allowed_host_suffixes": [
+        "caf.ac.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete",
+        "next_page_probe": {
+          "source_id": "src_224abf91b624cdad",
+          "requested_url": "https://yjs.caf.ac.cn/yjszs/bszs/12.htm",
+          "final_url": "https://yjs.caf.ac.cn/yjszs/bszs/12.htm",
+          "http_status": 200,
+          "bytes": 22851,
+          "sha256": "609feac4e20e24184af0c3ea8608f8950382f2eea34f4829aa9efcf7200eca25",
+          "capture_file": "raw\\source_selection\\pagination\\6c0dfc415b98c9e6d4f445aa514931f918dd78dbf85a1a81ba2b09cb274cc40e.body",
+          "error": null,
+          "checked_at_utc": "2026-11-10T07:24:31.106667+00:00",
+          "method": "Normal public urllib GET; default TLS validation"
+        },
+        "verified_urls": [
+          "https://yjs.caf.ac.cn/yjszs/bszs/12.htm"
+        ]
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200
+      },
+      "selection_observation": {
+        "name": "中国林业科学研究院",
+        "institution_id": "N-82201",
+        "url": "https://yjs.caf.ac.cn/yjszs/bszs.htm",
+        "role": "doctoral_publications",
+        "requested_url": "https://yjs.caf.ac.cn/yjszs/bszs.htm",
+        "final_url": "https://yjs.caf.ac.cn/yjszs/bszs.htm",
+        "http_status": 200,
+        "headers": {
+          "Date": "Tue, 10 Nov 2026 07:09:18 GMT",
+          "Content-Type": "text/html",
+          "Content-Length": "22223",
+          "Connection": "close",
+          "X-XSS-Protection": "1; mode=block",
+          "X-Content-Type-Options": "nosniff",
+          "Referrer-Policy": "no-referrer-when-downgrade",
+          "X-Download-Options": "noopen",
+          "X-Permitted-Cross-Domain-Policies": "master-only",
+          "Content-Security-Policy": "default-src 'self' data: blob: analytics.escience.org.cn 10.1.1.187 *.conac.cn *.gov.cn *.jiathis.com *.baidu.com *.google-analytics.com *.ac.cn *.bshare.cn *.eol.cn *.qq.com *.kaipuyun.cn *.bdimg.com *.wx.qq.com *.people.com.cn *.weibo.com *.m1905.cn 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'self';",
+          "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+          "Permissions-Policy": "geolocation=(self), microphone=()",
+          "Clear-Site-Data": "cache",
+          "Cross-Origin-Embedder-Policy": "unsafe-none",
+          "Cross-Origin-Resource-Policy": "cross-origin",
+          "Cross-Origin-Opener-Policy": "unsafe-none",
+          "Access-Control-Allow-Origin": "*",
+          "Last-Modified": "Thu, 05 Nov 2026 08:37:05 GMT",
+          "Cache-Control": "max-age=600",
+          "Expires": "Tue, 10 Nov 2026 07:19:16 GMT",
+          "Vary": "Accept-Encoding",
+          "ETag": "\"56cf-65f83667fb00d-gzip\"",
+          "Content-Language": "zh-CN",
+          "Accept-Ranges": "bytes"
+        },
+        "checked_at_utc": "2026-11-10T07:09:19.301163+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\224abf91b624cdad9ac4c9d1263b5d0d33ca9e367a334ad86dfec5a0d3baff18.body",
+        "sha256": "4faec2737d019c330f8c1b7600fe35a8ab537146a2e4035c6d24deffa2886a22",
+        "bytes": 22223,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "expected_asset_types": [
+        "html",
+        "pdf",
+        "office_attachment_if_present"
+      ],
+      "selection_link_count": 15,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 15,
+        "capture_file": "raw\\source_selection\\live_public_get\\224abf91b624cdad9ac4c9d1263b5d0d33ca9e367a334ad86dfec5a0d3baff18.body",
+        "sha256": "4faec2737d019c330f8c1b7600fe35a8ab537146a2e4035c6d24deffa2886a22"
+      }
+    },
+    {
+      "source_id": "src_e00345174715c555",
+      "url": "https://www.chinacdc.cn/jypx/yjsy/zszx/bszs/",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "N-84501",
+          "role": "doctoral_publications",
+          "scope": "官网博士招生专栏",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84501-001",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84501-002",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84501-003",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84501-004",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84501-005",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84501-006",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84501-007",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84501-008",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84501-009",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84501-010",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "中国疾病预防控制中心",
+      "transport": "html",
+      "list_selector": "dd",
+      "link_selector": "dd a[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "https://www.chinacdc.cn/jypx/yjsy/zszx/bszs/202611/t20261105_1842726.html",
+          "title": "中国疾病预防控制中心（中国预防医学科学院）2027年博士研究生招生简章",
+          "evidence_year": "2027",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "www.chinacdc.cn"
+      ],
+      "allowed_host_suffixes": [
+        "chinacdc.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete",
+        "next_page_probe": {
+          "source_id": "src_e00345174715c555",
+          "requested_url": "https://www.chinacdc.cn/jypx/yjsy/zszx/bszs/index_1.html",
+          "final_url": "https://www.chinacdc.cn/jypx/yjsy/zszx/bszs/index_1.html",
+          "http_status": 200,
+          "bytes": 27789,
+          "sha256": "a3f3107967a8618c1acf9b9c79b423f076d836745d2d144d3f77144d52f3f678",
+          "capture_file": "raw\\source_selection\\pagination\\6d98062ab75dbd270721a5847ddb042ccdf65fb011822b0cdf3a5a544c9d3cc8.body",
+          "error": null,
+          "checked_at_utc": "2026-11-10T07:24:31.114149+00:00",
+          "method": "Normal public urllib GET; default TLS validation"
+        },
+        "verified_urls": [
+          "https://www.chinacdc.cn/jypx/yjsy/zszx/bszs/index_1.html"
+        ]
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200
+      },
+      "selection_observation": {
+        "name": "中国疾病预防控制中心",
+        "institution_id": "N-84501",
+        "url": "https://www.chinacdc.cn/jypx/yjsy/zszx/bszs/",
+        "role": "doctoral_publications",
+        "requested_url": "https://www.chinacdc.cn/jypx/yjsy/zszx/bszs/",
+        "final_url": "https://www.chinacdc.cn/jypx/yjsy/zszx/bszs/",
+        "http_status": 200,
+        "headers": {
+          "Date": "Tue, 10 Nov 2026 07:09:16 GMT",
+          "Content-Type": "text/html; charset=utf-8",
+          "Content-Length": "29795",
+          "Connection": "close",
+          "Vary": "Accept-Encoding",
+          "Last-Modified": "Tue, 10 Nov 2026 02:17:03 GMT",
+          "ETag": "\"6af27e9f-7463\"",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+          "Access-Control-Allow-Headers": "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type",
+          "Accept-Ranges": "bytes",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+        },
+        "checked_at_utc": "2026-11-10T07:09:17.723120+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\e00345174715c555b7786402af6503e2c31dff77b24447910238318e6bfb90c3.body",
+        "sha256": "58062a9cc7276d33125284cd878f04e20e783a929e7edaaa72059f0c658343c7",
+        "bytes": 29795,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "expected_asset_types": [
+        "html",
+        "pdf",
+        "office_attachment_if_present"
+      ],
+      "selection_link_count": 12,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 12,
+        "capture_file": "raw\\source_selection\\live_public_get\\e00345174715c555b7786402af6503e2c31dff77b24447910238318e6bfb90c3.body",
+        "sha256": "58062a9cc7276d33125284cd878f04e20e783a929e7edaaa72059f0c658343c7"
+      }
+    },
+    {
+      "source_id": "src_75ba862b86515c7c",
+      "url": "https://www.yjstcm.ac.cn/channels/15.html",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "N-84502",
+          "role": "doctoral_publications",
+          "scope": "官网混合招生公告列表（含博士）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84502-001",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84502-002",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84502-003",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84502-004",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84502-005",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84502-006",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84502-008",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84502-009",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84502-010",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84502-011",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84502-012",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84502-013",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84502-014",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84502-015",
+          "role": "doctoral_publications",
+          "scope": "母体共享博士招生发布栏目（适用性逐单位已核）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84502-016",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-84502-007",
+          "role": "official_backup",
+          "scope": "母体共享博士发布列表（已逐本单位代码核定年度简章适用）",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "中国中医科学院",
+      "transport": "html",
+      "list_selector": ".list_item",
+      "link_selector": ".list_item h3 a[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "https://www.yjstcm.ac.cn/contents/15/18740.html",
+          "title": "中国中医科学院2027年博士研究生招生简章",
+          "evidence_year": "2027",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "www.yjstcm.ac.cn"
+      ],
+      "allowed_host_suffixes": [
+        "yjstcm.ac.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete",
+        "next_page_probe": {
+          "source_id": "src_75ba862b86515c7c",
+          "requested_url": "https://www.yjstcm.ac.cn/channels/15_2.html",
+          "final_url": "https://www.yjstcm.ac.cn/channels/15_2.html",
+          "http_status": 200,
+          "bytes": 12186,
+          "sha256": "4cbf412491b5e538e9f82e90f4b77827f90420825059fe93e73e42cf98aef9ff",
+          "capture_file": "raw\\source_selection\\pagination\\20e12afad3c646b946b3e628e95121dd9ee9bb2868681744234b5d16aa6bf933.body",
+          "error": null,
+          "checked_at_utc": "2026-11-10T07:24:31.052620+00:00",
+          "method": "Normal public urllib GET; default TLS validation"
+        },
+        "verified_urls": [
+          "https://www.yjstcm.ac.cn/channels/15_2.html"
+        ]
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200
+      },
+      "selection_observation": {
+        "name": "中国中医科学院",
+        "institution_id": "N-84502",
+        "url": "https://www.yjstcm.ac.cn/channels/15.html",
+        "role": "doctoral_publications",
+        "requested_url": "https://www.yjstcm.ac.cn/channels/15.html",
+        "final_url": "https://www.yjstcm.ac.cn/channels/15.html",
+        "http_status": 200,
+        "headers": {
+          "Server": "nginx",
+          "Date": "Tue, 10 Nov 2026 07:09:16 GMT",
+          "Content-Type": "text/html",
+          "Transfer-Encoding": "chunked",
+          "Connection": "close",
+          "Vary": "Accept-Encoding",
+          "ETag": "\"1dd70aed15ac443\"",
+          "Last-Modified": "Tue, 10 Nov 2026 01:00:03 GMT",
+          "X-Cache": "MISS"
+        },
+        "checked_at_utc": "2026-11-10T07:09:17.721839+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\75ba862b86515c7c84125ea6e62ab206a525fe18febd664e134dddceea79154b.body",
+        "sha256": "c6fa0daabbced840d01b6752ee15216c99ccdfacc5cfe1b97bc7f8e12672e4ac",
+        "bytes": 12227,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "expected_asset_types": [
+        "html",
+        "pdf",
+        "office_attachment_if_present"
+      ],
+      "selection_link_count": 6,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 6,
+        "capture_file": "raw\\source_selection\\live_public_get\\75ba862b86515c7c84125ea6e62ab206a525fe18febd664e134dddceea79154b.body",
+        "sha256": "c6fa0daabbced840d01b6752ee15216c99ccdfacc5cfe1b97bc7f8e12672e4ac"
+      }
+    },
+    {
+      "source_id": "src_8eaa5940afffc454",
+      "url": "https://gs.sass.org.cn/1794/list.htm",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "N-87903",
+          "role": "doctoral_publications",
+          "scope": "官网博士招生专栏",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "上海社会科学院",
+      "transport": "html",
+      "list_selector": "li.cols",
+      "link_selector": "li.cols .cols_title a[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".wp_articlecontent",
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "https://gs.sass.org.cn/_upload/article/files/4d/cd/7d296f2d4127b01d3c56b0f060e1/31977e04-94bd-4447-b60c-8ddca21681e8.pdf",
+          "title": "上海社会科学院2027年博士研究生招生简章",
+          "evidence_year": "2027",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "gs.sass.org.cn"
+      ],
+      "allowed_host_suffixes": [
+        "sass.org.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete",
+        "cms_family": "webplus",
+        "next_page_probe": {
+          "source_id": "src_8eaa5940afffc454",
+          "requested_url": "https://gs.sass.org.cn/1794/list2.htm",
+          "final_url": "https://gs.sass.org.cn/1794/list2.htm",
+          "http_status": 200,
+          "bytes": 40713,
+          "sha256": "cd88271625e02d96a2e51cfbcc471906f354ccb6f822113d4db679cb5eb32d95",
+          "capture_file": "raw\\source_selection\\pagination\\4c0bfd2af289abb5dae1d2bd8401074b67880ddd096c4104112afb76fb6536b4.body",
+          "error": null,
+          "checked_at_utc": "2026-11-10T07:24:31.505413+00:00",
+          "method": "Normal public urllib GET; default TLS validation"
+        },
+        "verified_urls": [
+          "https://gs.sass.org.cn/1794/list2.htm"
+        ]
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200
+      },
+      "selection_observation": {
+        "name": "上海社会科学院",
+        "institution_id": "N-87903",
+        "url": "https://gs.sass.org.cn/1794/list.htm",
+        "role": "doctoral_publications",
+        "requested_url": "https://gs.sass.org.cn/1794/list.htm",
+        "final_url": "https://gs.sass.org.cn/1794/list.htm",
+        "http_status": 200,
+        "headers": {
+          "Server": "nginx",
+          "Date": "Tue, 10 Nov 2026 07:08:34 GMT",
+          "Content-Type": "text/html",
+          "Transfer-Encoding": "chunked",
+          "Connection": "close",
+          "x-frame-options": "SAMEORIGIN",
+          "frame-options": "SAMEORIGIN",
+          "accept-ranges": "bytes",
+          "x-envoy-upstream-service-time": "0",
+          "X-Content-Type-Options": "nosniff",
+          "X-XSS-Protection": "1; mode=block",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Frame-Options": "SAMEORIGIN",
+          "Content-Security-Policy": "default-src * 'unsafe-inline' 'unsafe-eval' data: https:",
+          "X-Download-Options": "SAMEORIGIN",
+          "X-Permitted-Cross-Domain-Policies": "master-only",
+          "Strict-Transport-Security": "max-age=31536000;includeSubdomains; preload",
+          "Referrer-Policy": "strict-origin-when-cross-origin"
+        },
+        "checked_at_utc": "2026-11-10T07:09:18.158957+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\8eaa5940afffc4544a3f22afcaef4d2081afc52adff786b2a3525dd56291d4d2.body",
+        "sha256": "0604ff5d4a99e92aedf993cee374e89adfdf474a5ddfd2b64d2c9540dba1ea59",
+        "bytes": 40830,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "expected_asset_types": [
+        "html",
+        "pdf"
+      ],
+      "selection_link_count": 15,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 15,
+        "capture_file": "raw\\source_selection\\live_public_get\\8eaa5940afffc4544a3f22afcaef4d2081afc52adff786b2a3525dd56291d4d2.body",
+        "sha256": "0604ff5d4a99e92aedf993cee374e89adfdf474a5ddfd2b64d2c9540dba1ea59"
+      }
+    },
+    {
+      "source_id": "src_482a874d5165413d",
+      "url": "https://zsxx.gscaep.ac.cn/doctor/enrollment",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "N-82817",
+          "role": "doctoral_publications",
+          "scope": "博士招生简章专栏",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82817-900",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生简章栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82817-901",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生简章栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82817-902",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生简章栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82817-903",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生简章栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82817-904",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生简章栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82817-905",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生简章栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82817-906",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生简章栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82817-907",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生简章栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82817-908",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生简章栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82817-909",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生简章栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82817-910",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生简章栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82817-911",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生简章栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82817-912",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生简章栏目",
+          "doctoral_fact_confirmed": false
+        },
+        {
+          "institution_id": "T-82817-913",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生简章栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82817-915",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生简章栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82817-916",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生简章栏目",
+          "doctoral_fact_confirmed": true
+        },
+        {
+          "institution_id": "T-82817-917",
+          "role": "doctoral_publications",
+          "scope": "总院共享博士招生简章栏目",
+          "doctoral_fact_confirmed": false
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "中国工程物理研究院",
+      "transport": "html",
+      "list_selector": ".box1 .list",
+      "link_selector": ".box1 .list a.one[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "https://zsxx.gscaep.ac.cn/doctor/1974",
+          "title": "中国工程物理研究院2026年博士研究生招生简章",
+          "evidence_year": "2026",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "zsxx.gscaep.ac.cn"
+      ],
+      "allowed_host_suffixes": [
+        "gscaep.ac.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete"
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200
+      },
+      "selection_observation": {
+        "name": "中国工程物理研究院",
+        "institution_id": "N-82817",
+        "url": "https://zsxx.gscaep.ac.cn/doctor/enrollment",
+        "role": "doctoral_publications",
+        "requested_url": "https://zsxx.gscaep.ac.cn/doctor/enrollment",
+        "final_url": "https://zsxx.gscaep.ac.cn/doctor/enrollment",
+        "http_status": 200,
+        "headers": {
+          "Server": "nginx/1.18.0 (Ubuntu)",
+          "Content-Type": "text/html; charset=UTF-8",
+          "Transfer-Encoding": "chunked",
+          "Connection": "close",
+          "Cache-Control": "no-cache, private",
+          "Date": "Tue, 10 Nov 2026 07:20:13 GMT"
+        },
+        "checked_at_utc": "2026-11-10T07:09:18.089362+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\482a874d5165413d49a496032791d2c907f141e36ac4043ad5468138db569f6a.body",
+        "sha256": "1fd337899e7e4093ced3ce40eb268f16796f5f298049e986b02b5cabf377cbc5",
+        "bytes": 37596,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "selection_link_count": 13,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 13,
+        "capture_file": "raw\\source_selection\\live_public_get\\482a874d5165413d49a496032791d2c907f141e36ac4043ad5468138db569f6a.body",
+        "sha256": "1fd337899e7e4093ced3ce40eb268f16796f5f298049e986b02b5cabf377cbc5"
+      }
+    },
+    {
+      "source_id": "src_20e2880dd9762db0",
+      "url": "http://www.cags.cgs.gov.cn/yjszs/",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "N-82501",
+          "role": "doctoral_publications",
+          "scope": "官网研究生招生混合列表（含2026博士简章及专业目录）",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "中国地质科学院",
+      "transport": "html",
+      "list_selector": "#feizhiding",
+      "link_selector": "#feizhiding li a[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "https://edu.cags.ac.cn/#/dky/view/id=52c9bb5a9a1d0a6a019a2386f2b70001/barId=zs_bss",
+          "title": "中国地质科学院2026年博士研究生招生简章",
+          "evidence_year": "2026",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "edu.cags.ac.cn",
+        "www.cags.cgs.gov.cn",
+        "edu.cags.ac.cn"
+      ],
+      "allowed_host_suffixes": [
+        "cags.cgs.gov.cn",
+        "cags.ac.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete"
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200,
+        "detail_api": {
+          "id_regex": "/id=([^/]+)",
+          "url_template": "https://edu.cags.ac.cn/api/cms/cmsNews/get/{id}",
+          "headers": {
+            "Accept": "application/json"
+          },
+          "title_key": "title",
+          "date_key": "publishDate",
+          "content_key": "content",
+          "source": "Official public /views/dky/view.html template config from prior immutable captures"
+        }
+      },
+      "selection_observation": {
+        "name": "中国地质科学院",
+        "institution_id": "N-82501",
+        "url": "http://www.cags.cgs.gov.cn/yjszs/",
+        "role": "doctoral_publications",
+        "requested_url": "http://www.cags.cgs.gov.cn/yjszs/",
+        "final_url": "http://www.cags.cgs.gov.cn/yjszs/",
+        "http_status": 200,
+        "headers": {
+          "Connection": "close",
+          "Transfer-Encoding": "chunked",
+          "Accept-Ranges": "bytes",
+          "Content-Type": "text/html",
+          "Date": "Tue, 10 Nov 2026 07:09:17 GMT",
+          "Server": "Apache",
+          "X-Via": "1.1 PS-000-01QmR21:10 (Cdn Cache Server V2.0), 1.1 PS-000-014Ec86:11 (Cdn Cache Server V2.0)",
+          "X-Ws-Request-Id": "6af2c31c_PS-000-014Ec86_14591-62848"
+        },
+        "checked_at_utc": "2026-11-10T07:09:17.912739+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\20e2880dd9762db05047ee11114bdedad2bf1b78430f2d9c4eec79e2d57760e6.body",
+        "sha256": "384773b5fb9d03b820e830441d3f6ced4386a09794cbffb134cfdb6a677d8a04",
+        "bytes": 19812,
+        "error": null
+      },
+      "scope_note": "旧官网HTML列表发现；文章SPA fragment按已发布公开API取正文。没有把单篇API当全站简章列表。",
+      "selection_link_count": 6,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 6,
+        "capture_file": "raw\\source_selection\\live_public_get\\20e2880dd9762db05047ee11114bdedad2bf1b78430f2d9c4eec79e2d57760e6.body",
+        "sha256": "384773b5fb9d03b820e830441d3f6ced4386a09794cbffb134cfdb6a677d8a04"
+      }
+    },
+    {
+      "source_id": "src_88b48a8bc5c03774",
+      "url": "http://www.ia.cas.cn/yjsjy/zs/bszs/",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "T-14430-80146",
+          "role": "doctoral_publications",
+          "scope": "本所独立博士招生发布列表",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "自动化研究所",
+      "transport": "html",
+      "list_selector": "ul.wenzi-item",
+      "link_selector": "ul.wenzi-item li a[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "http://www.ia.cas.cn/yjsjy/zs/bszs/202610/t20261030_8301072.html",
+          "title": "中国科学院自动化研究所2027年博士研究生招生章程",
+          "evidence_year": "2027",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "www.ia.cas.cn"
+      ],
+      "allowed_host_suffixes": [
+        "ia.cas.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete",
+        "next_page_probe": {
+          "source_id": "src_88b48a8bc5c03774",
+          "requested_url": "http://www.ia.cas.cn/yjsjy/zs/bszs/index_1.html",
+          "final_url": "http://www.ia.cas.cn/yjsjy/zs/bszs/index_1.html",
+          "http_status": 200,
+          "bytes": 27896,
+          "sha256": "4f299501ebd15765648bd1d72d0a83ff33e8a5309779f07d2ca394943820bc41",
+          "capture_file": "raw\\source_selection\\pagination\\3213089471394a3ddf6d623aaebc71229ab7ed8a78959264dc92ad4e7ea110d8.body",
+          "error": null,
+          "checked_at_utc": "2026-11-10T07:24:31.262103+00:00",
+          "method": "Normal public urllib GET; default TLS validation"
+        },
+        "verified_urls": [
+          "http://www.ia.cas.cn/yjsjy/zs/bszs/index_1.html"
+        ]
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200
+      },
+      "selection_observation": {
+        "name": "自动化研究所",
+        "institution_id": "T-14430-80146",
+        "url": "http://www.ia.cas.cn/yjsjy/zs/bszs/",
+        "role": "doctoral_publications",
+        "requested_url": "http://www.ia.cas.cn/yjsjy/zs/bszs/",
+        "final_url": "http://www.ia.cas.cn/yjsjy/zs/bszs/",
+        "http_status": 200,
+        "headers": {
+          "Connection": "close",
+          "Transfer-Encoding": "chunked",
+          "Content-Security-Policy": "frame-ancestors *.cas.cn",
+          "Content-Type": "text/html",
+          "Date": "Tue, 10 Nov 2026 07:09:17 GMT",
+          "Referrer-Policy": "strict-origin-when-cross-origin",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "1; mode=block"
+        },
+        "checked_at_utc": "2026-11-10T07:09:18.242403+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\88b48a8bc5c03774d4eee34a0b5afe46eebef0623274e0ece6f6884a5489d74d.body",
+        "sha256": "b53cce9b0bb6df1fb2df25da821f1672bc57fcd05f30936a2bbad0e790ab1016",
+        "bytes": 28377,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "selection_link_count": 15,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 15,
+        "capture_file": "raw\\source_selection\\live_public_get\\88b48a8bc5c03774d4eee34a0b5afe46eebef0623274e0ece6f6884a5489d74d.body",
+        "sha256": "b53cce9b0bb6df1fb2df25da821f1672bc57fcd05f30936a2bbad0e790ab1016"
+      }
+    },
+    {
+      "source_id": "src_ab9ebeafae6f70a0",
+      "url": "http://edu.qibebt.ac.cn/zs/zsdt/bszs.htm",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "T-14430-80179",
+          "role": "doctoral_publications",
+          "scope": "本所独立博士招生发布列表",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "青岛生物能源与过程研究所",
+      "transport": "html",
+      "list_selector": "li.list-item",
+      "link_selector": "li.list-item a.title[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "http://edu.qibebt.ac.cn/info/1054/4877.htm",
+          "title": "青岛能源所2027年博士研究生招生章程及招生目录",
+          "evidence_year": "2027",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "edu.qibebt.ac.cn"
+      ],
+      "allowed_host_suffixes": [
+        "qibebt.ac.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete",
+        "next_page_probe": {
+          "source_id": "src_ab9ebeafae6f70a0",
+          "requested_url": "http://edu.qibebt.ac.cn/zs/zsdt/bszs/8.htm",
+          "final_url": "http://edu.qibebt.ac.cn/zs/zsdt/bszs/8.htm",
+          "http_status": 200,
+          "bytes": 28036,
+          "sha256": "cc2e2475de744201d775c14d487a1d9160c5f4c1da0f41be043314c2ccf9897f",
+          "capture_file": "raw\\source_selection\\pagination\\1ac76dcd835c9cbc2819f24287fbb213032d007e654d0b058581ce9ecd7895ae.body",
+          "error": null,
+          "checked_at_utc": "2026-11-10T07:24:31.254287+00:00",
+          "method": "Normal public urllib GET; default TLS validation"
+        },
+        "verified_urls": [
+          "http://edu.qibebt.ac.cn/zs/zsdt/bszs/8.htm"
+        ]
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200
+      },
+      "selection_observation": {
+        "name": "青岛生物能源与过程研究所",
+        "institution_id": "T-14430-80179",
+        "url": "http://edu.qibebt.ac.cn/zs/zsdt/bszs.htm",
+        "role": "doctoral_publications",
+        "requested_url": "http://edu.qibebt.ac.cn/zs/zsdt/bszs.htm",
+        "final_url": "http://edu.qibebt.ac.cn/zs/zsdt/bszs.htm",
+        "http_status": 200,
+        "headers": {
+          "Connection": "close",
+          "Content-Length": "27836",
+          "Accept-Ranges": "bytes",
+          "Cache-Control": "max-age=600",
+          "Content-Language": "zh-CN",
+          "Content-Type": "text/html",
+          "Date": "Tue, 10 Nov 2026 07:09:17 GMT",
+          "Etag": "\"6cbc-65ecba6e125d7-gzip\"",
+          "Expires": "Tue, 10 Nov 2026 07:19:17 GMT",
+          "Last-Modified": "Tue, 27 Oct 2026 05:23:51 GMT",
+          "Server": "VWebServer",
+          "Vary": "Accept-Encoding",
+          "X-Frame-Options": "SAMEORIGIN"
+        },
+        "checked_at_utc": "2026-11-10T07:09:18.089362+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\ab9ebeafae6f70a0417c7b120c1562ac25074b4286d346a4af166c9b8015d8d4.body",
+        "sha256": "6c1281e4989a9ea6137e208ee62249e41036af8631a62caf6bf60e3ab509a22e",
+        "bytes": 27836,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "selection_link_count": 20,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 20,
+        "capture_file": "raw\\source_selection\\live_public_get\\ab9ebeafae6f70a0417c7b120c1562ac25074b4286d346a4af166c9b8015d8d4.body",
+        "sha256": "6c1281e4989a9ea6137e208ee62249e41036af8631a62caf6bf60e3ab509a22e"
+      }
+    },
+    {
+      "source_id": "src_52259f7243274a11",
+      "url": "http://edu.nanoctr.cas.cn/zs/zsxx/bszs/",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "T-14430-80173",
+          "role": "doctoral_publications",
+          "scope": "本中心博士生招生专栏",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "国家纳米科学中心",
+      "transport": "html",
+      "list_selector": "li.box-s",
+      "link_selector": "li.box-s a.title-s[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "http://edu.nanoctr.cas.cn/zs/zsxx/bszs/202210/t20221012_287798.html",
+          "title": "国家纳米科学中心2027年博士研究生招生章程",
+          "evidence_year": "2027",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "edu.nanoctr.cas.cn"
+      ],
+      "allowed_host_suffixes": [
+        "nanoctr.cas.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete"
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200
+      },
+      "selection_observation": {
+        "name": "国家纳米科学中心",
+        "institution_id": "T-14430-80173",
+        "url": "http://edu.nanoctr.cas.cn/zs/zsxx/bszs/",
+        "role": "doctoral_publications",
+        "requested_url": "http://edu.nanoctr.cas.cn/zs/zsxx/bszs/",
+        "final_url": "http://edu.nanoctr.cas.cn/zs/zsxx/bszs/",
+        "http_status": 200,
+        "headers": {
+          "Connection": "close",
+          "Transfer-Encoding": "chunked",
+          "Content-Security-Policy": "frame-ancestors *.cas.cn *.ac.cn",
+          "Content-Type": "text/html",
+          "Date": "Tue, 10 Nov 2026 07:09:17 GMT",
+          "Referrer-Policy": "strict-origin-when-cross-origin",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Xss-Protection": "1; mode=block"
+        },
+        "checked_at_utc": "2026-11-10T07:09:18.322423+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\52259f7243274a119003fa8134c1fbbe8a832cf97245599401ccc82d016fd9b8.body",
+        "sha256": "604e48ff2757ebacfe15a0d57e31bc394f6735808c6d9590fa946d76a57b7f46",
+        "bytes": 32623,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "selection_link_count": 5,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 5,
+        "capture_file": "raw\\source_selection\\live_public_get\\52259f7243274a119003fa8134c1fbbe8a832cf97245599401ccc82d016fd9b8.body",
+        "sha256": "604e48ff2757ebacfe15a0d57e31bc394f6735808c6d9590fa946d76a57b7f46"
+      }
+    },
+    {
+      "source_id": "src_0588adee79f792c1",
+      "url": "https://sedu.sinh.ac.cn/cp2_2.php",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "T-14430-80192",
+          "role": "doctoral_publications",
+          "scope": "本单位官方混合发布列表（含博士公告）",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "上海营养与健康研究所",
+      "transport": "html",
+      "list_selector": ".content",
+      "link_selector": ".content a[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "https://sedu.sinh.ac.cn/cp2_2.php",
+          "title": "中国科学院上海营养与健康研究所2027年秋季入学博士研究生招生网上报名公告（栏目内完整十二节招生办法）",
+          "evidence_year": "2027",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "sedu.sinh.ac.cn"
+      ],
+      "allowed_host_suffixes": [
+        "sinh.ac.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": "当前HTTP200为12115字节占位页，列表无真实博士公告；既存完整原件不代表当前采集/报名可用",
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete"
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200,
+        "reject_placeholder": true,
+        "reject_body_sha256": [
+          "8f1ded1701fa27ad79e221ff0985154c120a61d96c6f38e543af4d85c79dd31f"
+        ]
+      },
+      "selection_observation": {
+        "name": "上海营养与健康研究所",
+        "institution_id": "T-14430-80192",
+        "url": "https://sedu.sinh.ac.cn/cp2_2.php",
+        "role": "doctoral_publications",
+        "requested_url": "https://sedu.sinh.ac.cn/cp2_2.php",
+        "final_url": "https://sedu.sinh.ac.cn/cp2_2.php",
+        "http_status": 200,
+        "headers": {
+          "Date": "Tue, 10 Nov 2026 07:09:17 GMT",
+          "Server": "Apache",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Strict-Transport-Security": "max-age=63072000; includeSubdomains; preload",
+          "X-Content-Type-Options": "nosniff",
+          "X-XSS-Protection": "1; mode=block",
+          "Vary": "Accept-Encoding",
+          "X-Download-Options": "value",
+          "Content-Security-Policy": "default-src * 'unsafe-inline' 'unsafe-eval'; script-src-elem * 'unsafe-inline'",
+          "Connection": "close",
+          "Transfer-Encoding": "chunked",
+          "Content-Type": "text/html; charset=UTF-8"
+        },
+        "checked_at_utc": "2026-11-10T07:09:18.331048+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\0588adee79f792c1bd3bc56f4d77f7fac404b88c795f582619c340dfc3553acc.body",
+        "sha256": "8f1ded1701fa27ad79e221ff0985154c120a61d96c6f38e543af4d85c79dd31f",
+        "bytes": 12115,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "feed_expected_failure": true,
+      "selection_link_count": 0,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 0,
+        "capture_file": "raw\\source_selection\\live_public_get\\0588adee79f792c1bd3bc56f4d77f7fac404b88c795f582619c340dfc3553acc.body",
+        "sha256": "8f1ded1701fa27ad79e221ff0985154c120a61d96c6f38e543af4d85c79dd31f"
+      }
+    },
+    {
+      "source_id": "src_f393898ebefebe61",
+      "url": "https://yz.chsi.com.cn/sch/listBulletin--schId-368014,categoryId-475169.dhtml",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "N-82903",
+          "role": "doctoral_publications",
+          "scope": "单位自发信息公告（硕博混合，含博士拟录取）",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "中国航空研究院(601所)",
+      "transport": "html",
+      "list_selector": "table",
+      "link_selector": "a.ablue[href*=\"viewBulletin\"]",
+      "selector_scope": "document",
+      "body_selectors": [
+        "#js_content",
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "https://mp.weixin.qq.com/s/3aGGrA2LMFTV80dVrUhZXw",
+          "title": "沈阳飞机设计研究所2026年博士研究生招生简章",
+          "evidence_year": "2026",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "mp.weixin.qq.com",
+        "yz.chsi.com.cn",
+        "mp.weixin.qq.com",
+        "mmbiz.qpic.cn"
+      ],
+      "allowed_host_suffixes": [
+        "chsi.com.cn",
+        "qpic.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete",
+        "next_page_probe": {
+          "source_id": "src_f393898ebefebe61",
+          "requested_url": "https://yz.chsi.com.cn/sch/listBulletin--schId-368014,categoryId-475169,start-20.dhtml",
+          "final_url": "https://yz.chsi.com.cn/sch/listBulletin--schId-368014,categoryId-475169,start-20.dhtml",
+          "http_status": 200,
+          "bytes": 37130,
+          "sha256": "c730207a680949695cac8d723612d52dda92ee137fe78f3a35a3bf0e108a2322",
+          "capture_file": "raw\\source_selection\\pagination\\41f8030517f5cf1d3b5c82777857545a1a7065e9886769a96855671d2ac52f71.body",
+          "error": null,
+          "checked_at_utc": "2026-11-10T07:24:31.486972+00:00",
+          "method": "Normal public urllib GET; default TLS validation"
+        },
+        "verified_urls": [
+          "https://yz.chsi.com.cn/sch/listBulletin--schId-368014,categoryId-475169,start-20.dhtml"
+        ]
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200
+      },
+      "selection_observation": {
+        "name": "中国航空研究院(601所)",
+        "institution_id": "N-82903",
+        "url": "https://yz.chsi.com.cn/sch/listBulletin--schId-368014,categoryId-475169.dhtml",
+        "role": "doctoral_publications",
+        "requested_url": "https://yz.chsi.com.cn/sch/listBulletin--schId-368014,categoryId-475169.dhtml",
+        "final_url": "https://yz.chsi.com.cn/sch/listBulletin--schId-368014,categoryId-475169.dhtml",
+        "http_status": 200,
+        "headers": {
+          "Date": "Tue, 10 Nov 2026 07:09:17 GMT",
+          "Content-Type": "text/html;charset=utf-8",
+          "Transfer-Encoding": "chunked",
+          "Connection": "close",
+          "Vary": "Accept-Encoding",
+          "Cache-Control": "public",
+          "Pragma": "no-cache",
+          "Expires": "Tue, 10 Nov 2026 07:10:27 GMT",
+          "Strict-Transport-Security": "max-age=31536000 ; includeSubDomains",
+          "X-XSS-Protection": "1; mode=block",
+          "X-Frame-Options": "DENY",
+          "X-Content-Type-Options": "nosniff"
+        },
+        "checked_at_utc": "2026-11-10T07:09:18.396976+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\f393898ebefebe61e8d4d381ef658ab7a05340347e549dafa03ff714220ca203.body",
+        "sha256": "be4bf4b42d7e031d11442bb4440951f6b8d9d44118f232088a1f581b812273c5",
+        "bytes": 47346,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "expected_asset_types": [
+        "html",
+        "image_scan"
+      ],
+      "ocr_policy": "preserve_original_image; mark ocr_pending unless independently processed",
+      "selection_link_count": 20,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 20,
+        "capture_file": "raw\\source_selection\\live_public_get\\f393898ebefebe61e8d4d381ef658ab7a05340347e549dafa03ff714220ca203.body",
+        "sha256": "be4bf4b42d7e031d11442bb4440951f6b8d9d44118f232088a1f581b812273c5"
+      }
+    },
+    {
+      "source_id": "src_286b7eb2cc4e607e",
+      "url": "https://math.ucas.ac.cn/index.php/zh-CN/zsjy/bszs",
+      "kind": "html",
+      "bindings": [
+        {
+          "institution_id": "T-14430-80080",
+          "role": "doctoral_publications",
+          "scope": "本所博士/研究生招生发布栏目",
+          "doctoral_fact_confirmed": true
+        }
+      ],
+      "adaptation_status": "configured_needs_runtime_validation",
+      "discovered_from": "frozen_catalogue",
+      "origin_baseline_id": "doctoral-catalogues-20261110-v1",
+      "name": "数学科学学院",
+      "transport": "html",
+      "list_selector": "ul.b-list",
+      "link_selector": "ul.b-list li a[href]",
+      "selector_scope": "document",
+      "body_selectors": [
+        ".v_news_content",
+        ".wp_articlecontent",
+        ".TRS_Editor",
+        "#vsb_content",
+        ".article-content",
+        ".article_content",
+        ".article-con",
+        ".article-body",
+        ".news-content",
+        ".content-detail",
+        ".content-body",
+        ".b-detail",
+        "article"
+      ],
+      "seed_notices": [
+        {
+          "url": "https://math.ucas.ac.cn/index.php/zh-CN/zsjy/bszs/3228-2026",
+          "title": "中国科学院大学2026年博士研究生招生章程",
+          "evidence_year": "2026",
+          "scope_note": "冻结表单篇证据种子；不代表该单位全部简章、批次或附件"
+        }
+      ],
+      "allowed_hosts": [
+        "math.ucas.ac.cn"
+      ],
+      "allowed_host_suffixes": [
+        "ucas.ac.cn"
+      ],
+      "expected_keywords": [
+        "博士",
+        "申请",
+        "考核",
+        "报名",
+        "招生"
+      ],
+      "known_gap": null,
+      "pagination": {
+        "strategy": "next_link",
+        "next_selector": "a.next, a.Next, .p_next a, a[rel=\"next\"]",
+        "next_texts": [
+          "下一页",
+          "下一页>>",
+          "下页",
+          ">",
+          "下一页 >"
+        ],
+        "max_pages": 2,
+        "coverage_status": "pilot_page_budget_limited_not_history_complete",
+        "next_page_probe": {
+          "source_id": "src_286b7eb2cc4e607e",
+          "requested_url": "https://math.ucas.ac.cn/index.php/zh-CN/zsjy/bszs?start=10",
+          "final_url": "https://math.ucas.ac.cn/index.php/zh-CN/zsjy/bszs?start=10",
+          "http_status": 200,
+          "bytes": 15144,
+          "sha256": "b1f49bc6903d59a4c000007298ea362f3f974a20aab53089b36dec1f5cf1cd4b",
+          "capture_file": "raw\\source_selection\\pagination\\8c175469fb146f03ae6abd63a65cf311053715220155a8f27d9818a7bd965543.body",
+          "error": null,
+          "checked_at_utc": "2026-11-10T07:24:31.594777+00:00",
+          "method": "Normal public urllib GET; default TLS validation"
+        },
+        "verified_urls": [
+          "https://math.ucas.ac.cn/index.php/zh-CN/zsjy/bszs?start=10"
+        ]
+      },
+      "extraction": {
+        "encoding": "utf-8",
+        "date_scope": "link_parent_text",
+        "min_body_characters": 200
+      },
+      "selection_observation": {
+        "name": "数学科学学院",
+        "institution_id": "T-14430-80080",
+        "url": "https://math.ucas.ac.cn/index.php/zh-CN/zsjy/bszs",
+        "role": "doctoral_publications",
+        "requested_url": "https://math.ucas.ac.cn/index.php/zh-CN/zsjy/bszs",
+        "final_url": "https://math.ucas.ac.cn/index.php/zh-CN/zsjy/bszs",
+        "http_status": 200,
+        "headers": {
+          "Server": "none",
+          "Date": "Tue, 10 Nov 2026 07:09:17 GMT",
+          "Content-Type": "text/html; charset=utf-8",
+          "Transfer-Encoding": "chunked",
+          "Connection": "close",
+          "P3P": "CP=\"NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM\"",
+          "Expires": "Wed, 17 Aug 2005 00:00:00 GMT",
+          "Cache-Control": "no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+          "Pragma": "no-cache",
+          "Strict-Transport-Security": "max-age=15768000"
+        },
+        "checked_at_utc": "2026-11-10T07:09:18.728668+00:00",
+        "method": "Python urllib normal public GET; certificate/hostname verification enabled",
+        "capture_file": "raw\\source_selection\\live_public_get\\286b7eb2cc4e607e12934465c404146f0941c18a99813e15807ec5597f4d0472.body",
+        "sha256": "3317bffa2537e7b99a91fcb15544b4fe2a37c9fd8a0dcad6ef1c224daeea8547",
+        "bytes": 16603,
+        "error": null
+      },
+      "scope_note": "当前已定位官方栏目及种子；首次试点不等于该单位所有院系/项目/人群全覆盖",
+      "selection_link_count": 10,
+      "selector_validation": {
+        "method": "Exact simple CSS class/id equivalents using lxml XPath over saved live HTML; runtime CSS validation still required",
+        "links": 10,
+        "capture_file": "raw\\source_selection\\live_public_get\\286b7eb2cc4e607e12934465c404146f0941c18a99813e15807ec5597f4d0472.body",
+        "sha256": "3317bffa2537e7b99a91fcb15544b4fe2a37c9fd8a0dcad6ef1c224daeea8547"
+      }
+    }
+  ],
+  "baseline": {
+    "validation_mode": "exported_registry",
+    "manifest_path": "../baseline/manifest.json",
+    "source_registry_path": "source_registry.json",
+    "manifest_sha256": "f069a8929df3a241b456ad19167e864ee30ed86e8b7d39ed7b86a8e089b03737",
+    "source_registry_sha256": "ef956e971e33058724370a8a2eb69b45ab29816bed5cb669cd3b19d8f66b3834",
+    "original_manifest_sha256": "e088ffc099da107b3acb3b103f04caca66acb901e98eb8c2a832e18a6fa73778",
+    "scope": "Checks the exported registry and frozen manifest hashes; does not re-read the original seven catalogue files on the runner."
+  }
+}
