@@ -1,5 +1,5 @@
 """Offline tests for public staging and private snapshot integrity boundaries."""
-import hashlib, json, subprocess, tempfile, unittest, zipfile
+import hashlib, json, os, subprocess, tempfile, unittest, zipfile
 from pathlib import Path
 import shutil
 from unittest.mock import patch
@@ -9,6 +9,7 @@ import prepare_publication as publication
 def local_test_directory():
     root=Path(__file__).resolve().parents[1]/".runtime/cloud-test-temp"
     root.mkdir(parents=True,exist_ok=True)
+    root=cloud.long_path(root)
     return tempfile.TemporaryDirectory(dir=root)
 
 class SnapshotTests(unittest.TestCase):
@@ -53,6 +54,12 @@ class SnapshotTests(unittest.TestCase):
         dest=self.root/"existing";dest.mkdir();(dest/"keep").write_text("preserve")
         with self.assertRaises(cloud.CloudError):cloud.restore_snapshot(self.bundle,dest)
         self.assertEqual((dest/"keep").read_text(),"preserve")
+
+    def test_deep_sha_style_destination_roundtrip(self):
+        dest=self.root/('a'*64)/('b'*64)/'restored'
+        result=cloud.restore_snapshot(self.bundle,dest)
+        self.assertEqual(result['restored_files'],3)
+        self.assertEqual(cloud.sha(dest/'raw/简章.bin'),cloud.sha(self.data/'raw/简章.bin'))
 
 class PublicationTests(unittest.TestCase):
     def setUp(self):
@@ -122,16 +129,19 @@ class RemoteControlTests(unittest.TestCase):
                 with next(target.glob("*.zip")).open("ab") as f:f.write(b"bad-download")
         return ""
 
+    def fake_download(self,repo,tag,destination):
+        return self.fake_gh(['release','download',tag,'--repo',repo,'--dir',str(destination)])
+
     def test_release_stays_draft_until_download_verified(self):
         self.calls=[];self.tamper=False
-        with patch("cloud_control.api",side_effect=self.fake_api),patch("cloud_control.gh",side_effect=self.fake_gh),patch("cloud_control.temporary_root",return_value=self.root):
+        with patch("cloud_control.api",side_effect=self.fake_api),patch("cloud_control.gh",side_effect=self.fake_gh),patch("cloud_control.download_snapshot_assets",side_effect=self.fake_download),patch("cloud_control.temporary_root",return_value=self.root):
             result=cloud.release_put(self.data,"example/data","snapshot-test")
         self.assertTrue(result["roundtrip_verified"])
         self.assertEqual(self.calls,[["release","create"],["release","upload"],["release","download"],["release","edit"]])
 
     def test_bad_download_does_not_publish_release(self):
         self.calls=[];self.tamper=True
-        with patch("cloud_control.api",side_effect=self.fake_api),patch("cloud_control.gh",side_effect=self.fake_gh),patch("cloud_control.temporary_root",return_value=self.root):
+        with patch("cloud_control.api",side_effect=self.fake_api),patch("cloud_control.gh",side_effect=self.fake_gh),patch("cloud_control.download_snapshot_assets",side_effect=self.fake_download),patch("cloud_control.temporary_root",return_value=self.root):
             with self.assertRaises(cloud.CloudError):cloud.release_put(self.data,"example/data","snapshot-test")
         self.assertNotIn(["release","edit"],self.calls)
 

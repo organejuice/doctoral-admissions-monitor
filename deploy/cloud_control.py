@@ -22,9 +22,17 @@ def temporary_root():
     root.mkdir(parents=True,exist_ok=True)
     return root
 
+def long_path(path):
+    """Use Windows' normal extended-length syntax for deeply nested SHA paths."""
+    path=Path(path).resolve()
+    if os.name=="nt" and not str(path).startswith("\\\\?\\"):
+        value=str(path)
+        path=Path("\\\\?\\UNC\\"+value.lstrip("\\") if value.startswith("\\\\") else "\\\\?\\"+value)
+    return path
+
 def sha(path):
     h = hashlib.sha256()
-    with Path(path).open("rb") as f:
+    with long_path(path).open("rb") as f:
         for chunk in iter(lambda: f.read(1024 * 1024), b""): h.update(chunk)
     return h.hexdigest()
 
@@ -141,7 +149,7 @@ def pack_snapshot(directory, bundle_dir):
     return manifest
 
 def restore_snapshot(bundle_dir, destination):
-    bundle_dir=Path(bundle_dir).resolve(); destination=Path(destination).resolve()
+    bundle_dir=Path(bundle_dir).resolve(); destination=long_path(destination)
     if destination.exists(): raise CloudError("Restore destination must not already exist")
     manifest=json.loads((bundle_dir/"snapshot-manifest.json").read_text("utf-8"))
     if manifest.get("schema_version")!=1: raise CloudError("Unknown snapshot schema")
@@ -177,6 +185,26 @@ def restore_snapshot(bundle_dir, destination):
         os.replace(stage,destination)
     return {"restored_files":len(manifest["files"]),"bytes":sum(e["bytes"] for e in manifest["files"])}
 
+def download_snapshot_assets(repo,tag,destination):
+    """Use official asset API, including private draft assets, without github.com URLs."""
+    release=None
+    for page in range(1,101):
+        releases=api(f"repos/{repo}/releases?per_page=100&page={page}")
+        release=next((r for r in releases if r['tag_name']==tag),None)
+        if release is not None or len(releases)<100:break
+    if release is None:raise CloudError("Requested snapshot release not found")
+    destination=long_path(destination);destination.mkdir(parents=True,exist_ok=True)
+    if not any(a['name']=='snapshot-manifest.json' for a in release.get('assets',[])):raise CloudError("Snapshot manifest asset missing")
+    for asset in release['assets']:
+        name=asset['name']
+        if name!='snapshot-manifest.json' and not re.fullmatch(r'snapshot-\d{4}\.zip',name):raise CloudError("Unexpected release asset")
+        if asset['size']>MAX_SNAPSHOT_BYTES:raise CloudError("Release asset exceeds pilot budget")
+        body=gh(['api',f'repos/{repo}/releases/assets/{asset["id"]}','--header','Accept: application/octet-stream'],binary=True)
+        digest=hashlib.sha256(body).hexdigest()
+        if len(body)!=asset['size'] or asset.get('digest') not in (None,'sha256:'+digest):raise CloudError("Release asset differs from GitHub digest")
+        (destination/name).write_bytes(body)
+    return release
+
 def release_put(directory, repo, tag):
     repo_check(repo,"private")
     if not TAG_RE.fullmatch(tag) or not tag.startswith("snapshot-"): raise CloudError("Invalid immutable snapshot tag; use snapshot- prefix")
@@ -194,7 +222,7 @@ def release_put(directory, repo, tag):
         gh(["release","upload",tag,*[str(f) for f in sorted(bundle.iterdir())],"--repo",repo])
         # Binary download and content validation occur before marking the release published.
         downloaded=Path(tmp)/"downloaded";downloaded.mkdir()
-        gh(["release","download",tag,"--repo",repo,"--dir",str(downloaded)])
+        download_snapshot_assets(repo,tag,downloaded)
         roundtrip=restore_snapshot(downloaded,Path(tmp)/"restored")
         gh(["release","edit",tag,"--repo",repo,"--draft=false"])
         return {"repository":repo,"tag":tag,"files":len(manifest["files"]),"roundtrip_verified":True,"bytes":roundtrip["bytes"]}
@@ -213,7 +241,7 @@ def release_get(destination, repo, tag=None, bootstrap=False):
         tag=max(snapshots,key=lambda x:x["created_at"])["tag_name"]
     if not TAG_RE.fullmatch(tag): raise CloudError("Invalid snapshot tag")
     with tempfile.TemporaryDirectory(prefix="doctoral-download-",dir=temporary_root()) as tmp:
-        gh(["release","download",tag,"--repo",repo,"--dir",tmp])
+        download_snapshot_assets(repo,tag,tmp)
         result=restore_snapshot(tmp,destination);result.update(tag=tag,bootstrapped=False)
         return result
 

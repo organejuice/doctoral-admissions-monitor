@@ -53,6 +53,12 @@ jobs:
         run: |
           set -euo pipefail
           python -m doctoral_monitor run --config config/pilot_sources.json --data-dir .probe/data --run-id "$PILOT_RUN_ID" --max-notices 1 --rsshub http://127.0.0.1:1200
+      - name: Emit safe per-source probe audit
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          python deploy/report_probe.py --report ".probe/data/reports/$PILOT_RUN_ID/report.json" --run-id "$PILOT_RUN_ID"
       - name: Record explicit probe-only boundary
         if: always()
         shell: bash

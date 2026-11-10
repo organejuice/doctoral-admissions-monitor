@@ -55,13 +55,13 @@ python deploy/cloud_control.py release-get --repo OWNER/DATA --destination NEW_R
 python -m unittest discover -s deploy -p test_cloud_tools.py -v
 ```
 
-17项本地测试覆盖原文字节/前导零恢复、损坏分片拒绝、路径穿越拒绝、清单外文件拒绝、个人配置及私钥块排除、已有目录保护、发布白名单与上游许可证保留、导出基线及错误不回显私密内容；模拟GitHub还覆盖上传后下载校验再发布、下载损坏保持draft、连接失败不能当空状态、禁止向公共仓库上传私有包和探针dispatch不携带归档初始化参数。通过不代表真实云端私有Release或手机已经验收。
+18项本地测试覆盖原文字节/前导零恢复、深层SHA目录的Windows长路径恢复、损坏分片拒绝、路径穿越拒绝、清单外文件拒绝、个人配置及私钥块排除、已有目录保护、发布白名单与上游许可证保留、导出基线及错误不回显私密内容；模拟GitHub还覆盖上传后下载校验再发布、下载损坏保持draft、连接失败不能当空状态、禁止向公共仓库上传私有包和探针dispatch不携带归档初始化参数。通过不代表真实云端私有Release或手机已经验收。
 
 每次手动云端任务都新启bridge与RSSHub，并给bridge和采集器相同的运行ID。同一个bridge进程只按来源刷新一次，若在本地同进程反复跑采集，应重启bridge或显式刷新其来源缓存，不能把重复读取缓存当新一次在线检查。
 
 ## 无私有凭据时的独立出口探针
 
-`public-network-probe.workflow.yml`单独发布为 `.github/workflows/network-probe.yml`，仅手动触发，不使用私有仓库或secret。运行 `python deploy/cloud_control.py dispatch --repo OWNER/CODE --workflow network-probe.yml` 即可在标准公共runner检查当前26源的首屏和每源最多1篇原文。所有原件只在临时runner存在，未上传Release/artifact/cache，未发通知；这不算持久归档验收。正常归档工作流仍在受限data凭据缺失时失败，不会自动降级成此探针。
+`public-network-probe.workflow.yml`单独发布为 `.github/workflows/network-probe.yml`，仅手动触发，不使用私有仓库或secret。运行 `python deploy/cloud_control.py dispatch --repo OWNER/CODE --workflow network-probe.yml` 即可在标准公共runner检查当前26源的首屏和每源最多1篇原文。安全精简的逐源HTTP结果、失败原因和计数以 `CLOUD_PROBE_DETAIL=` 单行JSON保存在实际job日志，不输出正文、响应头或个人配置。所有原件只在临时runner存在，未上传Release/artifact/cache，未发通知；这不算持久归档验收。正常归档工作流仍在受限data凭据缺失时失败，不会自动降级成此探针。
 
 ## 已核实的平台条件
 
